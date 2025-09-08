@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>DIS-THF Demo – Öffentliches Interface</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <!-- Skip-Link für Tastatur -->
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- THF Header mit gelber Leiste -->
+  <header class="site-header site-header--thf" role="banner">
+    <div class="head-flex">
+      <!-- THF Logo -->
+      <a class="brand" href="/" aria-label="THF – Startseite">
+        <img src="https://www.thf-berlin.de/_assets/616c6a00a4c43ca7e5845da9208c60b2/Images/Logo_THF.svg" alt="Flughafen Tempelhof Logo" width="140" height="36">
+      </a>
+
+      <!-- Leichte Sprache Button -->
+      <button id="easySwitch" class="ls-toggle" aria-pressed="false" type="button">LEICHTE SPRACHE</button>
+
+      <!-- Sprachumschalter -->
+      <div class="language-switch">
+        <span>DE</span>/<a href="#en">EN</a>
+      </div>
+
+      <!-- Suchfeld -->
+      <form class="site-search" role="search" aria-label="Website durchsuchen">
+        <label for="search-input" class="visually-hidden">Suchbegriff eingeben</label>
+        <input id="search-input" type="search" placeholder="Suche..." aria-label="Suchbegriff eingeben">
+        <button type="submit" aria-label="Suchen">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <!-- Burger Menü (wird zu X, wenn geöffnet) -->
+      <button id="burgerToggle" class="burger-toggle" aria-expanded="false" aria-controls="megaOverlay" aria-label="Menü öffnen" type="button">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mega-Menü Overlay UNTER dem Header -->
+  <div id="megaOverlay" class="mega-overlay" hidden>
+    <div class="mega-grid">
+      <div class="mega-col">
+        <h3 class="section-title">Über Uns</h3>
+        <ul>
+          <li><a href="/#denkmalpflegeplan">Denkmalpflegeplan und Denkmalkonzept</a></li>
+          <li><a href="informationen-dis.html">Informationen über das DIS</a></li>
+          <li><a href="/#dis-anmeldung">DIS Anmeldung beantragen</a></li>
+          <li><a href="/#ansprechpartner">Ansprechpartner THF</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h3 class="section-title">Flughafen Tempelhof</h3>
+        <ul>
+          <!-- Neuer Menüpunkt "Raumbuch THF" als Hauptebene -->
+          <li><a href="index.html">Raumbuch THF</a></li>
+          
+          <li>
+            <span class="tree-toggle-wrapper">
+              <span>A1 Vorfeld</span>
+              <button class="tree-toggle" aria-expanded="false" aria-controls="tree-a1-vorfeld" type="button"></button>
+            </span>
+            <ul id="tree-a1-vorfeld" class="submenu" hidden>
+              <li>
+                <span class="tree-toggle-wrapper">
+                  <span>Rollfeldebene</span>
+                  <button class="tree-toggle" aria-expanded="false" aria-controls="tree-rollfeldebene" type="button">▼</button>
+                </span>
+                <ul id="tree-rollfeldebene" class="submenu submenu-level-2">
+                  <li><a href="#">üv</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">B</a></li>
+          <li><a href="#">H2lang</a></li>
+          <li>
+            <span class="tree-toggle-wrapper">
+              <span>H2rund</span>
+              <button class="tree-toggle" aria-expanded="false" aria-controls="tree-h2rund" type="button">▼</button>
+            </span>
+            <ul id="tree-h2rund" class="submenu">
+              <li><a href="#">Fassade</a></li>
+              <li><a href="#">1.UG</a></li>
+              <li><a href="#">2.UG</a></li>
+              <li><a href="#">DG</a></li>
+              <li><a href="#">Ebene 1</a></li>
+              <li><a href="#">Ebene 2</a></li>
+              <li><a href="#">Ebene 3</a></li>
+              <li><a href="#">Ebene 4</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Treppenturm 01</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h3 class="section-title">Rechtliches</h3>
+        <ul>
+          <li><a href="/#barrierefreiheit">Barrierefreiheit</a></li>
+          <li><a href="/#leichte-sprache">Leichte Sprache</a></li>
+          <li><a href="/#datenschutz">Datenschutz</a></li>
+          <li><a href="/#agb">AGB</a></li>
+          <li><a href="/#impressum">Impressum</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Schließen-Button unten bleibt für zusätzliche Benutzerfreundlichkeit -->
+    <div class="menu-footer">
+      <button id="menuCloseBtn" class="menu-close-btn">Menü schließen</button>
+    </div>
+  </div>
+
+  <!-- Rest der Seite bleibt unverändert -->
+  <nav class="breadcrumbs" aria-label="Brotkrumen">
+    <ol>
+      <li><a href="#">Home</a></li>
+      <li aria-current="page">Raumbuch THF Übersicht</li>
+    </ol>
+  </nav>
+
+  <main id="main" class="wrap" role="main">
+    <!-- Einführung / Leichte Sprache -->
+    <section id="intro" class="section">
+      <h1 class="h-xl">Denkmalinformationssystem Tempelhof</h1>
+      <div class="easy-text" hidden>
+        <p>
+          Willkommen! Hier sehen Sie wichtige Infos über das Denkmal Flughafen Tempelhof.
+          Die Seite ist einfach. Sie können Texte, Bilder und Pläne ansehen.
+        </p>
+      </div>
+    </section>
+
+    <!-- Lageplan -->
+    <section id="map" class="section card">
+      <h2>Lageplan</h2>
+      <p>Interaktiver Lageplan des Flughafens Tempelhof mit Gebäudeteilen und Navigationspunkten.</p>
+      <div class="map-container">
+        <img src="lageplan.png" alt="Lageplan Flughafen Tempelhof mit allen Gebäudeteilen" class="thf-map">
+      </div>
+    </section>
+
+    <!-- Dokumentation mit Tabs (Raumbuch/Denkmalpflege) -->
+    <section id="documentation" class="section card">
+      <div class="tabs-container">
+        <div class="tabs" role="tablist">
+          <button id="tab-raumbuch" class="tab active" role="tab" aria-selected="true" aria-controls="panel-raumbuch">Raumbuch</button>
+          <button id="tab-denkmalpflege" class="tab" role="tab" aria-selected="false" aria-controls="panel-denkmalpflege">Denkmalpflege</button>
+        </div>
+        
+        <div id="panel-raumbuch" class="tab-panel active" role="tabpanel" aria-labelledby="tab-raumbuch">
+          <div class="documentation-content">
+            <h3>Baugeschichtliche Dokumentation</h3>
+            
+            <div class="accordion">
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-einleitung-btn" aria-expanded="false" aria-controls="accordion-einleitung">
+                    <span>Einleitung</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-einleitung" hidden>
+                  <p>Die hier vorliegende Baubeschreibung einschließlich der Planungs- und Baugeschichte ist insbesondere darauf gerichtet eine konkrete Grundlage für die Aufgabenstellung „Denkmalpflegeplan Flughafen Tempelhof" zu bilden. An dieser Stelle wird deshalb ausdrücklich auf die umfangreiche Literatur mit ihren ausführlichen Quellenangaben hingewiesen. Die Quellenlage ist unter Punkt 3 ausführlich beschrieben und bewertet. Alle bisher ausgewerteten Quellen sind in der Datenbank DIS erfasst. Eine bauteilweise Chronologie unter Punkt 4. ergänzt die vorliegenden bauhistorischen Beschreibungen. Abbildung 30</p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-nutzung-btn" aria-expanded="false" aria-controls="accordion-nutzung">
+                    <span>Zusammenfassende Darstellung der Nutzungsgeschichte</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-nutzung" hidden>
+                  <p>Die bauzeitliche Gestaltung der Gesamtanlage (Planung, Architektur):</p>
+                  <p>Der ehemalige Flughafen Tempelhof zählt mit seinen ca. 307.000 qm Geschossfläche heute noch zu den größten zusammenhängenden Gebäudekomplexen der Welt. Die Geländefläche umfasst vier Quadratkilometer, von denen 147.500 qm überbaut sind.[1]</p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-baugeschichte-btn" aria-expanded="false" aria-controls="accordion-baugeschichte">
+                    <span>Planungsgeschichte, Baugeschichte, Baubeschreibung</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-baugeschichte" hidden>
+                  <p>Der Flughafen Tempelhof ist ein äußerst vielschichtiges Bauwerk. Nicht nur aus städtebaulichen und architektonischen Gründen ist er eins der bemerkenswertesten Baudenkmale Europas sondern vor allem auf Grund seiner Funktion. Hier hat sich Weltgeschichte ereignet. In erster Linie ist der Flughafen unzweifelhaft ein Dokument des Machtanspruches des Dritten Reiches, sollte er doch in der Vision seiner Auftraggeber und Schöpfer ein regerechtes Machtspektakel darbieten und zusammen mit der Nord-Süd-Achse als ein grandioses Entrée zur Welthauptstadt Germania dienen.</p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-auswertung-btn" aria-expanded="false" aria-controls="accordion-auswertung">
+                    <span>Auswertung</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-auswertung" hidden>
+                  <p>Er ist aber auch ein unersetzbares Zeugnis für die Geschichte des Flughafenbaus, indem hier eine mit großem Geschick organisierte Gesamtanlage errichtet wurde, die viele Neuerungen im Flughafenbau hervorbrachte. Auch auf ingenieurtechnischem Gebiet ist der Flughafen ein einmaliges Denkmal, denn bei den Flugsteigen und Flugzeughallen wurden neue bahnbrechende Ingenieurstechniken angewandt, die sich als wegweisend auf dem Gebiet des Flugzeughallenbaus erweisen sollten.</p>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="mt-4">Bestandserfassung</h3>
+            
+            <div class="accordion">
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-zusammenfassung-btn" aria-expanded="false" aria-controls="accordion-zusammenfassung">
+                    <span>Zusammenfassung</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-zusammenfassung" hidden>
+                  <p>Nicht zuletzt ist er ein Zeugnis der Geschichte der Nachkriegszeit. Von hier aus wurde die Luftbrücke organisiert. 48 Jahre lang waren große Teile des Flughafens in Besitz der United States Air Force.</p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-schadenserfassung-btn" aria-expanded="false" aria-controls="accordion-schadenserfassung">
+                    <span>Schadenserfassung</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-schadenserfassung" hidden>
+                  <p>Andere Teile wurden durch die Berliner Flughafengesellschaft genutzt - bis zum Bau des Flughafens Tegel war Tempelhof der zentrale Flughafen West Berlins.</p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-restauratorisch-btn" aria-expanded="false" aria-controls="accordion-restauratorisch">
+                    <span>Restauratorische Untersuchung</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-restauratorisch" hidden>
+                  <p>Das Gesicht des ehemaligen Flughafens zeigt bis heute Spuren aus all diesen historischen Phasen.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="panel-denkmalpflege" class="tab-panel" role="tabpanel" aria-labelledby="tab-denkmalpflege" hidden>
+          <div class="documentation-content">
+            <h3>Denkmalpflegerische Konzepte</h3>
+            
+            <div class="accordion">
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-einleitung-denkmal-btn" aria-expanded="false" aria-controls="accordion-einleitung-denkmal">
+                    <span>Einleitung</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-einleitung-denkmal" hidden>
+                  <p>Denkmalpflegerische Einleitung zum Flughafen Tempelhof.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-fassaden-btn" aria-expanded="false" aria-controls="accordion-fassaden">
+                    <span>Fassaden</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-fassaden" hidden>
+                  <p>Informationen zur denkmalpflegerischen Behandlung der Fassaden.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-dach-btn" aria-expanded="false" aria-controls="accordion-dach">
+                    <span>Dach</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-dach" hidden>
+                  <p>Informationen zur denkmalpflegerischen Behandlung der Dachflächen.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-innenraeume-btn" aria-expanded="false" aria-controls="accordion-innenraeume">
+                    <span>Innenräume</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-innenraeume" hidden>
+                  <p>Denkmalpflegerische Konzepte für die Innenräume des Flughafens.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-fenster-btn" aria-expanded="false" aria-controls="accordion-fenster">
+                    <span>Fenster</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-fenster" hidden>
+                  <p>Konzept zur Erhaltung und Sanierung der historischen Fenster.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-treppen-btn" aria-expanded="false" aria-controls="accordion-treppen">
+                    <span>Treppen</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-treppen" hidden>
+                  <p>Konzept zur Behandlung der historischen Treppenanlagen.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-tueren-btn" aria-expanded="false" aria-controls="accordion-tueren">
+                    <span>Türen</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-tueren" hidden>
+                  <p>Konzept zur Erhaltung und Sanierung der historischen Türen.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-aussenanlagen-btn" aria-expanded="false" aria-controls="accordion-aussenanlagen">
+                    <span>Außenanlagen</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-aussenanlagen" hidden>
+                  <p>Denkmalpflegerisches Konzept für die Außenanlagen des Flughafens.</p>
+                </div>
+              </div>
+            </div>
+            
+            <h3 class="mt-4">Denkmalpflegerische Richtlinien</h3>
+            
+            <div class="accordion">
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-energetisch-btn" aria-expanded="false" aria-controls="accordion-energetisch">
+                    <span>Energetische Ertüchtigung</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-energetisch" hidden>
+                  <p>Richtlinien zur energetischen Ertüchtigung unter Berücksichtigung des Denkmalschutzes.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-barrierefreiheit-btn" aria-expanded="false" aria-controls="accordion-barrierefreiheit">
+                    <span>Barrierefreiheit</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-barrierefreiheit" hidden>
+                  <p>Konzept zur barrierearmen/-freien Erschließung unter Wahrung der Denkmalsubstanz.</p>
+                </div>
+              </div>
+              
+              <!-- Weitere Elemente im selben Format -->
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-brandschutz-btn" aria-expanded="false" aria-controls="accordion-brandschutz">
+                    <span>Brandschutz</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-brandschutz" hidden>
+                  <p>Brandschutzkonzept unter Berücksichtigung denkmalpflegerischer Belange.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-leitsystem-btn" aria-expanded="false" aria-controls="accordion-leitsystem">
+                    <span>Leitsystem</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-leitsystem" hidden>
+                  <p>Konzept für ein Leitsystem, das sich in die historische Architektur integriert.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-sicherheit-btn" aria-expanded="false" aria-controls="accordion-sicherheit">
+                    <span>Sicherheit</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-sicherheit" hidden>
+                  <p>Sicherheitskonzept unter Berücksichtigung denkmalpflegerischer Belange.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-sonnenschutz-btn" aria-expanded="false" aria-controls="accordion-sonnenschutz">
+                    <span>Sonnenschutz</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-sonnenschutz" hidden>
+                  <p>Konzept für denkmalpflegerisch verträglichen Sonnenschutz.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-flachdaecher-btn" aria-expanded="false" aria-controls="accordion-flachdaecher">
+                    <span>Alternative Nutzung der Flachdächer</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-flachdaecher" hidden>
+                  <p>Konzept zur alternativen Nutzung der Flachdachflächen unter Wahrung der Denkmalsubstanz.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-platzanlagen-btn" aria-expanded="false" aria-controls="accordion-platzanlagen">
+                    <span>Gestaltung der Straßen- und Platzanlagen</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-platzanlagen" hidden>
+                  <p>Richtlinien zur Gestaltung der Straßen- und Platzanlagen im Umfeld des Flughafens.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-veranstaltungen-btn" aria-expanded="false" aria-controls="accordion-veranstaltungen">
+                    <span>Öffentliche Veranstaltungen</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-veranstaltungen" hidden>
+                  <p>Richtlinien für die Durchführung öffentlicher Veranstaltungen unter Berücksichtigung des Denkmalschutzes.</p>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-neubau-btn" aria-expanded="false" aria-controls="accordion-neubau">
+                    <span>Rahmenbedingungen für Neu- und Zusatzbebauung</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-neubau" hidden>
+                  <p>Denkmalpflegerische Rahmenbedingungen für Neu- und Zusatzbebauung auf dem Flughafengelände.</p>
+                </div>
+              </div>
+            </div>
+            
+            <h3 class="mt-4">Farbkonzept</h3>
+            
+            <div class="accordion">
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button" id="accordion-farbkonzept-btn" aria-expanded="false" aria-controls="accordion-farbkonzept">
+                    <span>Farbkonzept</span>
+                    <span class="accordion-icon"></span>
+                  </button>
+                </h4>
+                <div class="accordion-content" id="accordion-farbkonzept" hidden>
+                  <p>Detailliertes Farbkonzept für die denkmalgerechte Gestaltung des Flughafens Tempelhof.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Downloads -->
+    <section id="downloads" class="section card">
+      <h2>Downloads</h2>
+      <ul class="list">
+        <li>
+          <a href="#" aria-describedby="dl1-meta">Raumbuch: Beispiel Bauteil A (PDF, 1.2 MB)</a>
+          <small id="dl1-meta" class="meta">Quelle: DIS-THF, Stand 2025-09-02</small>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- THF-Style Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-main">
+    <div class="wrap">
+      <div class="footer-grid">
+        <!-- Spalte 1: Logo und Kontakt -->
+        <div class="footer-col">
+          <a class="brand footer-brand" href="/" aria-label="THF – Startseite">
+            <img src="https://www.thf-berlin.de/_assets/616c6a00a4c43ca7e5845da9208c60b2/Images/Logo_THF.svg" alt="Flughafen Tempelhof Logo" width="140" height="36">
+          </a>
+          <address class="footer-address">
+            Flughafen Tempelhof<br>
+            Denkmalpflege<br>
+            Platz der Luftbrücke 5<br>
+            12101 Berlin
+          </address>
+          <a href="mailto:kontakt@dis-thf.de" class="footer-contact">kontakt@dis-thf.de</a>
+        </div>
+        
+        <!-- Spalte 2: Über Uns -->
+        <div class="footer-col">
+          <h3 class="footer-title">Über Uns</h3>
+          <ul class="footer-nav">
+            <li><a href="/#denkmalpflegeplan">Denkmalpflegeplan und Denkmalkonzept</a></li>
+            <li><a href="informationen-dis.html">Informationen über das DIS</a></li>
+            <li><a href="/#dis-anmeldung">DIS Anmeldung beantragen</a></li>
+            <li><a href="/#ansprechpartner">Ansprechpartner THF</a></li>
+          </ul>
+        </div>
+        
+        <!-- Spalte 3: Flughafen Tempelhof -->
+        <div class="footer-col">
+          <h3 class="footer-title">Flughafen Tempelhof</h3>
+          <ul class="footer-nav">
+            <li><a href="index.html">Raumbuch THF</a></li>
+            <li><a href="#">A1 Vorfeld</a></li>
+            <li><a href="#">B</a></li>
+            <li><a href="#">H2lang</a></li>
+            <li><a href="#">H2rund</a></li>
+            <li><a href="#">Treppenturm 01</a></li>
+          </ul>
+        </div>
+        
+        <!-- Spalte 4: Rechtliches -->
+        <div class="footer-col">
+          <h3 class="footer-title">Rechtliches</h3>
+          <ul class="footer-nav">
+            <li><a href="/barrierefreiheitserklaerung.html">Barrierefreiheit</a></li>
+            <li><a href="/#leichte-sprache">Leichte Sprache</a></li>
+            <li><a href="/#datenschutz">Datenschutz</a></li>
+            <li><a href="/#agb">AGB</a></li>
+            <li><a href="/#impressum">Impressum</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Copyright-Leiste unten -->
+  <div class="footer-bottom">
+    <div class="wrap">
+      <div class="footer-bottom-flex">
+        <p class="footer-copyright">© 2025 Denkmalinformationssystem Flughafen Tempelhof</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Besuchen Sie uns auf Facebook" class="social-link">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="Besuchen Sie uns auf Twitter" class="social-link">
+            <i class="fab fa-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="Besuchen Sie uns auf Instagram" class="social-link">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JavaScript (angepasst) -->
+  <script>
+    // Utility-Funktionen
+    const qs = (s, el=document) => el.querySelector(s);
+    const qsa = (s, el=document) => [...el.querySelectorAll(s)];
+
+    // Burger Menü öffnen/schließen
+    const burgerToggle = qs('#burgerToggle');
+    const megaOverlay = qs('#megaOverlay');
+    const menuCloseBtn = qs('#menuCloseBtn');
+
+    // Menü öffnen/schließen mit Burger-Button (der zum X wird)
+    burgerToggle.addEventListener('click', () => {
+      const expanded = burgerToggle.getAttribute('aria-expanded') === 'true';
+      toggleMenu(!expanded); // Umkehren des aktuellen Status
+    });
+    
+    // Menü mit Footer-Button schließen
+    menuCloseBtn.addEventListener('click', () => {
+      toggleMenu(false);
+    });
+
+    // Menü-Status umschalten
+    function toggleMenu(shouldOpen) {
+      burgerToggle.setAttribute('aria-expanded', String(shouldOpen));
+      megaOverlay.hidden = !shouldOpen;
+      
+      if (shouldOpen) {
+        document.body.classList.add('menu-open');
+        burgerToggle.setAttribute('aria-label', 'Menü schließen');
+      } else {
+        document.body.classList.remove('menu-open');
+        burgerToggle.setAttribute('aria-label', 'Menü öffnen');
+      }
+    }
+
+    // Tree toggles im Overlay
+    qsa('.tree-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        const targetId = btn.getAttribute('aria-controls');
+        const target = qs('#' + targetId);
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (target) {
+          target.hidden = expanded;
+        }
+      });
+    });
+
+    // „Leichte Sprache" umschalten (falls vorhanden)
+    qs('#easySwitch')?.addEventListener('click', e => {
+      const pressed = e.currentTarget.getAttribute('aria-pressed') === 'true';
+      e.currentTarget.setAttribute('aria-pressed', String(!pressed));
+      // Logik zum Umschalten der Inhalte
+    });
+    
+    // Tab-Funktionalität
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Alle Tabs deaktivieren
+        document.querySelectorAll('.tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        
+        // Alle Panels ausblenden
+        document.querySelectorAll('.tab-panel').forEach(panel => {
+          panel.classList.remove('active');
+          panel.hidden = true;
+        });
+        
+        // Angeklickten Tab aktivieren
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        
+        // Zugehöriges Panel anzeigen
+        const panelId = tab.getAttribute('aria-controls');
+        const panel = document.getElementById(panelId);
+        panel.classList.add('active');
+        panel.hidden = false;
+      });
+    });
+    
+    // Akkordeon-Funktionalität
+    document.querySelectorAll('.accordion-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !expanded);
+        
+        const contentId = button.getAttribute('aria-controls');
+        const content = document.getElementById(contentId);
+        
+        if (content) {
+          content.hidden = expanded;
+        }
+      });
+    });
+
+    // Responsive-Anpassungen je nach Bildschirmgröße
+    function handleResponsiveLayout() {
+      const isMobile = window.innerWidth < 768;
+      
+      // Anpassungen für mobile Geräte
+      if (isMobile) {
+        // Header-Elemente für Mobilgeräte optimieren
+        document.querySelectorAll('.language-switch, .ls-toggle').forEach(el => {
+          el.classList.add('mobile-compact');
+        });
+        
+        // Vereinfachte Navigation für mobile Geräte
+        document.querySelectorAll('.accordion-button span:first-child').forEach(span => {
+          if (span.textContent.length > 30) {
+            span.setAttribute('data-full-text', span.textContent);
+            span.textContent = span.textContent.substring(0, 27) + '...';
+          }
+        });
+      } else {
+        // Desktop-Layout wiederherstellen
+        document.querySelectorAll('.language-switch, .ls-toggle').forEach(el => {
+          el.classList.remove('mobile-compact');
+        });
+        
+        // Volle Texte wiederherstellen
+        document.querySelectorAll('.accordion-button span[data-full-text]').forEach(span => {
+          span.textContent = span.getAttribute('data-full-text');
+        });
+      }
+    }
+    
+    // Initial ausführen und bei Größenänderungen
+    handleResponsiveLayout();
+    window.addEventListener('resize', handleResponsiveLayout);
+  </script>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Informationen über das DIS – Denkmalinformationssystem Tempelhof</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <!-- Skip-Link für Tastatur -->
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- THF Header mit gelber Leiste -->
+  <header class="site-header site-header--thf" role="banner">
+    <div class="head-flex">
+      <!-- THF Logo -->
+      <a class="brand" href="/" aria-label="THF – Startseite">
+        <img src="https://www.thf-berlin.de/_assets/616c6a00a4c43ca7e5845da9208c60b2/Images/Logo_THF.svg" alt="Flughafen Tempelhof Logo" width="140" height="36">
+      </a>
+
+      <!-- Leichte Sprache Button -->
+      <button id="easySwitch" class="ls-toggle" aria-pressed="false" type="button">LEICHTE SPRACHE</button>
+
+      <!-- Sprachumschalter -->
+      <div class="language-switch">
+        <span>DE</span>/<a href="#en">EN</a>
+      </div>
+
+      <!-- Suchfeld -->
+      <form class="site-search" role="search" aria-label="Website durchsuchen">
+        <label for="search-input" class="visually-hidden">Suchbegriff eingeben</label>
+        <input id="search-input" type="search" placeholder="Suche..." aria-label="Suchbegriff eingeben">
+        <button type="submit" aria-label="Suchen">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <!-- Burger Menü (wird zu X, wenn geöffnet) -->
+      <button id="burgerToggle" class="burger-toggle" aria-expanded="false" aria-controls="megaOverlay" aria-label="Menü öffnen" type="button">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mega-Menü Overlay UNTER dem Header -->
+  <div id="megaOverlay" class="mega-overlay" hidden>
+    <div class="mega-grid">
+      <div class="mega-col">
+        <h3 class="section-title">Über Uns</h3>
+        <ul>
+          <li><a href="/#denkmalpflegeplan">Denkmalpflegeplan und Denkmalkonzept</a></li>
+          <li><a href="informationen-dis.html">Informationen über das DIS</a></li>
+          <li><a href="/#dis-anmeldung">DIS Anmeldung beantragen</a></li>
+          <li><a href="/#ansprechpartner">Ansprechpartner THF</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h3 class="section-title">Flughafen Tempelhof</h3>
+        <ul>
+          <!-- Neuer Menüpunkt "Raumbuch THF" als Hauptebene -->
+          <li><a href="index.html">Raumbuch THF</a></li>
+          
+          <li>
+            <span class="tree-toggle-wrapper">
+              <span>A1 Vorfeld</span>
+              <button class="tree-toggle" aria-expanded="false" aria-controls="tree-a1-vorfeld" type="button"></button>
+            </span>
+            <ul id="tree-a1-vorfeld" class="submenu" hidden>
+              <li>
+                <span class="tree-toggle-wrapper">
+                  <span>Rollfeldebene</span>
+                  <button class="tree-toggle" aria-expanded="false" aria-controls="tree-rollfeldebene" type="button">▼</button>
+                </span>
+                <ul id="tree-rollfeldebene" class="submenu submenu-level-2">
+                  <li><a href="#">üv</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">B</a></li>
+          <li><a href="#">H2lang</a></li>
+          <li>
+            <span class="tree-toggle-wrapper">
+              <span>H2rund</span>
+              <button class="tree-toggle" aria-expanded="false" aria-controls="tree-h2rund" type="button">▼</button>
+            </span>
+            <ul id="tree-h2rund" class="submenu">
+              <li><a href="#">Fassade</a></li>
+              <li><a href="#">1.UG</a></li>
+              <li><a href="#">2.UG</a></li>
+              <li><a href="#">DG</a></li>
+              <li><a href="#">Ebene 1</a></li>
+              <li><a href="#">Ebene 2</a></li>
+              <li><a href="#">Ebene 3</a></li>
+              <li><a href="#">Ebene 4</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Treppenturm 01</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h3 class="section-title">Rechtliches</h3>
+        <ul>
+          <li><a href="/#barrierefreiheit">Barrierefreiheit</a></li>
+          <li><a href="/#leichte-sprache">Leichte Sprache</a></li>
+          <li><a href="/#datenschutz">Datenschutz</a></li>
+          <li><a href="/#agb">AGB</a></li>
+          <li><a href="/#impressum">Impressum</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Schließen-Button unten -->
+    <div class="menu-footer">
+      <button id="menuCloseBtn" class="menu-close-btn">Menü schließen</button>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Brotkrumen">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Über Uns</a></li>
+      <li aria-current="page">Informationen über das DIS</li>
+    </ol>
+  </nav>
+
+  <main id="main" class="wrap" role="main">
+    <!-- Einführung / Leichte Sprache -->
+    <section id="intro" class="section">
+      <h1 class="h-xl">THF als Denkmal: Das Informationssystem THF</h1>
+      <div class="easy-text" hidden>
+        <p>
+          Das DIS ist ein System mit vielen Informationen über den Flughafen Tempelhof.
+          Es zeigt Pläne und Fotos. Es erklärt die Geschichte des Gebäudes.
+          Jeder kann das System benutzen und Informationen finden.
+        </p>
+      </div>
+    </section>
+
+    <!-- Hero-Bild -->
+    <section id="hero" class="section">
+      <div class="hero-container">
+        <img src="dis-screenshot.png" alt="Screenshot des Denkmalinformationssystems Tempelhof" class="hero-image">
+      </div>
+    </section>
+
+    <!-- Informationen zum DIS -->
+    <section id="info-dis" class="section card">
+      <h2>Das Denkmalinformationssystem im Detail</h2>
+      
+      <div class="accordion">
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button" id="accordion-was-ist-btn" aria-expanded="false" aria-controls="accordion-was-ist">
+              <span>Was ist das DIS-THF?</span>
+              <span class="accordion-icon"></span>
+            </button>
+          </h4>
+          <div class="accordion-content" id="accordion-was-ist" hidden>
+            <p>Das Denkmalinformationssystem Tempelhof (DIS-THF) ist eine zentrale digitale Plattform zur Dokumentation und Verwaltung aller denkmalpflegerischen Informationen rund um den Flughafen Tempelhof. Es wurde entwickelt, um das komplexe Baudenkmal mit seiner umfangreichen Geschichte zu erfassen und die Informationen systematisch zugänglich zu machen.</p>
+            <p>Primär wird das System von Denkmalpflegern, Architekten, Restauratoren und Bauforschern genutzt, die am Erhalt des Flughafengebäudes arbeiten. Aber auch interessierte Bürgerinnen und Bürger können über die öffentliche Schnittstelle auf grundlegende Informationen zugreifen.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button" id="accordion-was-finde-ich-btn" aria-expanded="false" aria-controls="accordion-was-finde-ich">
+              <span>Was finde ich dort?</span>
+              <span class="accordion-icon"></span>
+            </button>
+          </h4>
+          <div class="accordion-content" id="accordion-was-finde-ich" hidden>
+            <p>Im DIS-THF finden Sie eine Vielzahl von Informationen zum Flughafen Tempelhof:</p>
+            <ul>
+              <li><strong>Historische Pläne und Zeichnungen:</strong> Originalpläne aus den verschiedenen Bauphasen des Flughafens</li>
+              <li><strong>Raumbuch:</strong> Detaillierte Informationen zu jedem Raum des Gebäudes</li>
+              <li><strong>Fotografische Dokumentationen:</strong> Historische und aktuelle Aufnahmen</li>
+              <li><strong>Bauteilinformationen:</strong> Detaillierte Angaben zu Materialien, Bauzustand und denkmalpflegerischer Bewertung</li>
+              <li><strong>Sanierungsmaßnahmen:</strong> Dokumentation durchgeführter und geplanter Maßnahmen</li>
+              <li><strong>Gutachten und Fachberichte:</strong> Restauratorische Untersuchungen, bauhistorische Analysen</li>
+              <li><strong>Chronologische Entwicklung:</strong> Zeitstrahl der baulichen Veränderungen</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button" id="accordion-warum-oeffentlich-btn" aria-expanded="false" aria-controls="accordion-warum-oeffentlich">
+              <span>Warum ist es öffentlich?</span>
+              <span class="accordion-icon"></span>
+            </button>
+          </h4>
+          <div class="accordion-content" id="accordion-warum-oeffentlich" hidden>
+            <p>Die öffentliche Zugänglichkeit des DIS-THF basiert auf mehreren Grundsätzen:</p>
+            <p><strong>Informationsfreiheitsgesetz Berlin (IFG):</strong> Das Berliner IFG gewährt Bürgerinnen und Bürgern das Recht auf Zugang zu amtlichen Informationen. Als Teil der öffentlichen Hand unterliegt die Denkmalpflege diesen Transparenzvorgaben.</p>
+            <p><strong>Transparente Denkmalpflege:</strong> Der Flughafen Tempelhof ist ein bedeutendes Baudenkmal von öffentlichem Interesse. Die transparente Dokumentation und Vermittlung denkmalpflegerischer Entscheidungen fördert das Verständnis und die Akzeptanz für Denkmalschutzbelange in der Gesellschaft.</p>
+            <p><strong>Partizipation:</strong> Die öffentliche Zugänglichkeit ermöglicht eine breitere Beteiligung und fördert den Wissensaustausch zwischen Fachleuten und interessierten Bürgern.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button" id="accordion-wie-nutze-ich-btn" aria-expanded="false" aria-controls="accordion-wie-nutze-ich">
+              <span>Wie nutze ich es?</span>
+              <span class="accordion-icon"></span>
+            </button>
+          </h4>
+          <div class="accordion-content" id="accordion-wie-nutze-ich" hidden>
+            <p>Die Nutzung des DIS-THF ist intuitiv gestaltet, bietet aber zahlreiche Funktionen:</p>
+            <p><strong>Navigation:</strong> Sie können über die Gebäudestruktur, den interaktiven Lageplan oder die Suchfunktion navigieren.</p>
+            <p><strong>Filterfunktionen:</strong> Die Informationen lassen sich nach verschiedenen Kriterien filtern, z.B. nach Zeitraum, Bauteil oder Dokumenttyp.</p>
+            <p><strong>Glossar:</strong> Ein umfangreiches Glossar erläutert Fachbegriffe aus Architektur und Denkmalpflege.</p>
+            <p><strong>Verwendete Terminologie:</strong> Das System nutzt die standardisierte Fachterminologie der Denkmalpflege. Wichtige Begriffe wie "Bauphase", "Schadensbild" oder "Denkmalwert" werden im System einheitlich verwendet und erläutert.</p>
+            <p>Für tiefergehende Recherchen oder spezifische Anfragen steht das Fachpersonal der THF-Denkmalpflege zur Verfügung.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button" id="accordion-datenschutz-btn" aria-expanded="false" aria-controls="accordion-datenschutz">
+              <span>Datenschutz & Verantwortung</span>
+              <span class="accordion-icon"></span>
+            </button>
+          </h4>
+          <div class="accordion-content" id="accordion-datenschutz" hidden>
+            <p>Im Sinne des Datenschutzes und der Gebäudesicherheit wurden folgende Maßnahmen getroffen:</p>
+            <p><strong>Personenbezogene Daten:</strong> Alle personenbezogenen Daten in Dokumenten wurden anonymisiert oder geschwärzt.</p>
+            <p><strong>Sicherheitsrelevante Informationen:</strong> Detaillierte Informationen zu sicherheitsrelevanten Bereichen (technische Anlagen, Zugangssysteme) sind nicht öffentlich zugänglich.</p>
+            <p><strong>Urheberrecht:</strong> Bei historischen Dokumenten und Fotografien wurden urheberrechtliche Aspekte berücksichtigt. Die Nutzung der Materialien unterliegt entsprechenden Nutzungsbedingungen.</p>
+            <p><strong>Verantwortlichkeit:</strong> Für die Pflege und Aktualisierung des Systems ist die Denkmalbehörde in Zusammenarbeit mit der Tempelhof Projekt GmbH verantwortlich.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benutzung DIS mit Bild und Erklärungen -->
+    <section id="benutzung-dis" class="section card">
+      <h2>Benutzung DIS</h2>
+      
+      <!-- Feature-Bild -->
+      <div class="feature-image-container">
+        <img src="dis-einfuehrung.png" alt="Übersicht der DIS-Benutzeroberfläche mit nummerierten Bereichen" class="feature-image">
+      </div>
+      
+      <!-- Erklärung der Punkte als Akkordeon -->
+      <div class="accordion mt-4">
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button" id="accordion-punkt1-btn" aria-expanded="false" aria-controls="accordion-punkt1">
+              <span>1. Hauptnavigation</span>
+              <span class="accordion-icon"></span>
+            </button>
+          </h4>
+          <div class="accordion-content" id="accordion-punkt1" hidden>
+            <p>Die Hauptnavigation bietet Zugriff auf die wichtigsten Bereiche des DIS: Raumbuch, Kataloge, Kampagnentool, Erfassung und Extras. Hier können Sie zwischen den verschiedenen Modulen wechseln. Das Raumbuch ist der zentrale Bereich für die Gebäudeinformationen.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button" id="accordion-punkt2-btn" aria-expanded="false" aria-controls="accordion-punkt2">
+              <span>2. Gebäudestruktur</span>
+              <span class="accordion-icon"></span>
+            </button>
+          </h4>
+          <div class="accordion-content" id="accordion-punkt2" hidden>
+            <p>Die hierarchische Gebäudestruktur zeigt die Organisation des Flughafens nach Bauteilen, Etagen und Räumen. Durch Anklicken der Ordnersymbole können Sie die Struktur aufklappen und bis zur Raumebene navigieren. Jeder Raum hat eine eindeutige Kennung (z.B. "4138 Treppenhaus").</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button" id="accordion-punkt3-btn" aria-expanded="false" aria-controls="accordion-punkt3">
+              <span>3. Inhaltsansicht</span>
+              <span class="accordion-icon"></span>
+            </button>
+          </h4>
+          <div class="accordion-content" id="accordion-punkt3" hidden>
+            <p>Der zentrale Bereich zeigt die Inhalte zum ausgewählten Raum oder Bauteil. Über Reiter können Sie zwischen verschiedenen Informationstypen wechseln: Raumbuch (allgemeine Informationen), Denkmalpflege (konservatorische Aspekte) und Kampagnen (durchgeführte Maßnahmen). In diesem Beispiel sehen Sie die baugeschichtliche Dokumentation eines Treppenturms.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button" id="accordion-punkt4-btn" aria-expanded="false" aria-controls="accordion-punkt4">
+              <span>4. Lageplan</span>
+              <span class="accordion-icon"></span>
+            </button>
+          </h4>
+          <div class="accordion-content" id="accordion-punkt4" hidden>
+            <p>Der interaktive Lageplan zeigt die Position des ausgewählten Raumes oder Bauteils im Gesamtkomplex. Sie können den Plan zoomen, verschieben und verschiedene Ebenen ein- und ausblenden. Die aktuelle Position ist farblich hervorgehoben. Über den Lageplan können Sie auch direkt zu anderen Räumen navigieren.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button" id="accordion-punkt5-btn" aria-expanded="false" aria-controls="accordion-punkt5">
+              <span>5. Dokumentenansicht</span>
+              <span class="accordion-icon"></span>
+            </button>
+          </h4>
+          <div class="accordion-content" id="accordion-punkt5" hidden>
+            <p>Im unteren Bereich werden zugeordnete Dokumente zum aktuell ausgewählten Raum angezeigt. Diese können historische Akten, Fotografien, Zeichnungen oder aktuelle Gutachten sein. Die Dokumente sind nach Kategorien sortiert und können direkt aus dem System heraus betrachtet werden. Für viele Dokumente stehen zusätzliche Metadaten zur Verfügung.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button" id="accordion-punkt6-btn" aria-expanded="false" aria-controls="accordion-punkt6">
+              <span>6. Suchfunktionen</span>
+              <span class="accordion-icon"></span>
+            </button>
+          </h4>
+          <div class="accordion-content" id="accordion-punkt6" hidden>
+            <p>Die Suchfunktionen erlauben eine gezielte Recherche nach Räumen, Dokumenten oder Informationen. Sie können zwischen exakter Suche (nur exakte Treffer) und kumulativer Suche (ähnliche Begriffe werden berücksichtigt) wählen. Die globale Suche oben rechts durchsucht die gesamte Datenbank nach dem eingegebenen Begriff.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Bereich -->
+    <section id="cta" class="section cta-section">
+      <div class="cta-container">
+        <h2 class="cta-title">Haben wir Ihr Interesse geweckt?</h2>
+        <p class="cta-text">Beantragen Sie hier einen Zugang zum Denkmalinformationssystem und entdecken Sie das architektonische Erbe des Flughafens Tempelhof in seiner vollen Tiefe.</p>
+        <div class="cta-buttons">
+          <a href="/#dis-anmeldung" class="btn btn-primary">Zugang beantragen</a>
+          <a href="index.html" class="btn btn-secondary">Mehr über das Raumbuch erfahren</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Downloads -->
+    <section id="downloads" class="section card">
+      <h2>Weiterführende Materialien</h2>
+      <ul class="list">
+        <li>
+          <a href="#" aria-describedby="dl1-meta">Benutzerhandbuch DIS-THF (PDF, 2.4 MB)</a>
+          <small id="dl1-meta" class="meta">Stand: September 2025</small>
+        </li>
+        <li>
+          <a href="#" aria-describedby="dl2-meta">Glossar denkmalpflegerischer Fachbegriffe (PDF, 1.5 MB)</a>
+          <small id="dl2-meta" class="meta">Stand: Juli 2025</small>
+        </li>
+        <li>
+          <a href="#" aria-describedby="dl3-meta">Anleitung zur Nutzung der Suchfunktionen (PDF, 0.8 MB)</a>
+          <small id="dl3-meta" class="meta">Stand: August 2025</small>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- THF-Style Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-main">
+      <div class="wrap">
+        <div class="footer-grid">
+          <!-- Spalte 1: Logo und Kontakt -->
+          <div class="footer-col">
+            <a class="brand footer-brand" href="/" aria-label="THF – Startseite">
+              <img src="https://www.thf-berlin.de/_assets/616c6a00a4c43ca7e5845da9208c60b2/Images/Logo_THF.svg" alt="Flughafen Tempelhof Logo" width="140" height="36">
+            </a>
+            <address class="footer-address">
+              Flughafen Tempelhof<br>
+              Denkmalpflege<br>
+              Platz der Luftbrücke 5<br>
+              12101 Berlin
+            </address>
+            <a href="mailto:kontakt@dis-thf.de" class="footer-contact">kontakt@dis-thf.de</a>
+          </div>
+          
+          <!-- Spalte 2: Über Uns -->
+          <div class="footer-col">
+            <h3 class="footer-title">Über Uns</h3>
+            <ul class="footer-nav">
+              <li><a href="/#denkmalpflegeplan">Denkmalpflegeplan und Denkmalkonzept</a></li>
+              <li><a href="informationen-dis.html">Informationen über das DIS</a></li>
+              <li><a href="/#dis-anmeldung">DIS Anmeldung beantragen</a></li>
+              <li><a href="/#ansprechpartner">Ansprechpartner THF</a></li>
+            </ul>
+          </div>
+          
+          <!-- Spalte 3: Flughafen Tempelhof -->
+          <div class="footer-col">
+            <h3 class="footer-title">Flughafen Tempelhof</h3>
+            <ul class="footer-nav">
+              <li><a href="index.html">Raumbuch THF</a></li>
+              <li><a href="#">A1 Vorfeld</a></li>
+              <li><a href="#">B</a></li>
+              <li><a href="#">H2lang</a></li>
+              <li><a href="#">H2rund</a></li>
+              <li><a href="#">Treppenturm 01</a></li>
+            </ul>
+          </div>
+          
+          <!-- Spalte 4: Rechtliches -->
+          <div class="footer-col">
+            <h3 class="footer-title">Rechtliches</h3>
+            <ul class="footer-nav">
+              <li><a href="/barrierefreiheitserklaerung.html">Barrierefreiheit</a></li>
+              <li><a href="/#leichte-sprache">Leichte Sprache</a></li>
+              <li><a href="/#datenschutz">Datenschutz</a></li>
+              <li><a href="/#agb">AGB</a></li>
+              <li><a href="/#impressum">Impressum</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Copyright-Leiste unten -->
+    <div class="footer-bottom">
+      <div class="wrap">
+        <div class="footer-bottom-flex">
+          <p class="footer-copyright">© 2025 Denkmalinformationssystem Flughafen Tempelhof</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Besuchen Sie uns auf LinkedIn" class="social-link">
+              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+            <a href="#" aria-label="Besuchen Sie uns auf Instagram" class="social-link">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="#" aria-label="Besuchen Sie uns auf Facebook" class="social-link">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Utility-Funktionen
+    const qs = (s, el=document) => el.querySelector(s);
+    const qsa = (s, el=document) => [...el.querySelectorAll(s)];
+
+    // Burger Menü öffnen/schließen
+    const burgerToggle = qs('#burgerToggle');
+    const megaOverlay = qs('#megaOverlay');
+    const menuCloseBtn = qs('#menuCloseBtn');
+
+    // Menü öffnen/schließen mit Burger-Button (der zum X wird)
+    burgerToggle.addEventListener('click', () => {
+      const expanded = burgerToggle.getAttribute('aria-expanded') === 'true';
+      toggleMenu(!expanded); // Umkehren des aktuellen Status
+    });
+    
+    // Menü mit Footer-Button schließen
+    menuCloseBtn.addEventListener('click', () => {
+      toggleMenu(false);
+    });
+
+    // Menü-Status umschalten
+    function toggleMenu(shouldOpen) {
+      burgerToggle.setAttribute('aria-expanded', String(shouldOpen));
+      megaOverlay.hidden = !shouldOpen;
+      
+      if (shouldOpen) {
+        document.body.classList.add('menu-open');
+        burgerToggle.setAttribute('aria-label', 'Menü schließen');
+      } else {
+        document.body.classList.remove('menu-open');
+        burgerToggle.setAttribute('aria-label', 'Menü öffnen');
+      }
+    }
+
+    // Tree toggles im Overlay
+    qsa('.tree-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        const targetId = btn.getAttribute('aria-controls');
+        const target = qs('#' + targetId);
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (target) {
+          target.hidden = expanded;
+        }
+      });
+    });
+
+    // „Leichte Sprache" umschalten (falls vorhanden)
+    qs('#easySwitch')?.addEventListener('click', e => {
+      const pressed = e.currentTarget.getAttribute('aria-pressed') === 'true';
+      e.currentTarget.setAttribute('aria-pressed', String(!pressed));
+      // Logik zum Umschalten der Inhalte
+    });
+    
+    // Akkordeon-Funktionalität
+    document.querySelectorAll('.accordion-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !expanded);
+        
+        const contentId = button.getAttribute('aria-controls');
+        const content = document.getElementById(contentId);
+        
+        if (content) {
+          content.hidden = expanded;
+        }
+      });
+    });
+
+    // Responsive-Anpassungen je nach Bildschirmgröße
+    function handleResponsiveLayout() {
+      const isMobile = window.innerWidth < 768;
+      
+      // Anpassungen für mobile Geräte
+      if (isMobile) {
+        // Header-Elemente für Mobilgeräte optimieren
+        document.querySelectorAll('.language-switch, .ls-toggle').forEach(el => {
+          el.classList.add('mobile-compact');
+        });
+        
+        // Vereinfachte Navigation für mobile Geräte
+        document.querySelectorAll('.accordion-button span:first-child').forEach(span => {
+          if (span.textContent.length > 30) {
+            span.setAttribute('data-full-text', span.textContent);
+            span.textContent = span.textContent.substring(0, 27) + '...';
+          }
+        });
+      } else {
+        // Desktop-Layout wiederherstellen
+        document.querySelectorAll('.language-switch, .ls-toggle').forEach(el => {
+          el.classList.remove('mobile-compact');
+        });
+        
+        // Volle Texte wiederherstellen
+        document.querySelectorAll('.accordion-button span[data-full-text]').forEach(span => {
+          span.textContent = span.getAttribute('data-full-text');
+        });
+      }
+    }
+    
+    // Initial ausführen und bei Größenänderungen
+    handleResponsiveLayout();
+    window.addEventListener('resize', handleResponsiveLayout);
+  </script>
+</body>
+</html>

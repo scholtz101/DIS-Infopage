@@ -1,0 +1,940 @@
+
+
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+            <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+            <META HTTP-EQUIV="Expires" CONTENT="-1">
+                <title>DIS Tempelhof</title>
+                <link rel='stylesheet' type='text/css' href='css/screen.css'/>
+                <link rel="stylesheet" href="./jquery/themes/default/style.min.css" />
+                <link rel="stylesheet" href="./jquery/css/ui-lightness/jquery-ui-1.10.2.custom.css" />
+                <script type="text/javascript" src="include/tinymce/jscripts/tiny_mce/tiny_mce.js" ></script>
+                <script type="text/javascript" src="./jquery/jquery-1.9.1.js"></script>
+                 <script type="text/javascript" src="./jquery/image-scale.min.js"></script>
+                <script type="text/javascript" src="./jquery/jquery-ui-1.10.2.custom.js"></script>
+                <script type="text/javascript" src="./jquery/jquery.svg.pan.zoom.js"></script>
+                <link rel="stylesheet" href="./jquery/css/jquery.dataTables.min.css" />
+                <script src="./jquery/jquery.dataTables.min.js" type="text/javascript"></script>
+                <script type="text/javascript" src="./jquery/localization/messages_de.min.js"></script>
+                <script>
+                    $(function() {
+                        $("#fmenu").menu();
+		    });
+                   
+function adjust2() {
+	$('body, html, #container').scrollTop(0);
+	            }
+                </script>
+                <style>
+                    .ui-menu { width: 150px; }
+                </style>
+                <script type="text/javascript">
+                    
+                   function ausblendenMitteVorschau() {
+                       
+                        if(!$("#center").is(":visible"))  {
+                             $("#center").css("width","50%");
+                             $("#right").css("width","30%");
+                             $("#roben").css("height", "50%").css('height', '-=6px');
+                             $("#center").show();
+                             $("#runten").show();
+                             
+                              $('#knopflageplan').html('<div class="bbbutton"><a type="button" class="stylish-button"><img  src="./img/aufklappen.gif"/></a></div>');
+  
+                            
+                        }
+                        else {
+                            $("#center").hide();
+                            $("#runten").hide();
+                            $("#roben").css("height", "100%").css('height', '-=6px');
+                            $("#right").css("width","80%");
+                            $('#knopflageplan').html('<div class="bbbutton"><a type="button" class="stylish-button"><img  src="./img/zuklappen.gif"/></a></div>');
+                        
+                    }
+                    }
+                    
+                    
+                   function ausblendenMitteLageplan() {
+                       
+                        if(!$("#center").is(":visible"))  {
+                             $("#center").css("width","50%");
+                             $("#right").css("width","30%");
+                             $("#runten").css("height", "50%").css('height', '-=6px');
+                             $("#center").show();
+                             $("#roben").show();
+                             
+                              $('#knopfvorschau').html('<div class="bbbutton"><a type="button" class="stylish-button"><img  src="./img/aufklappen.gif"/></a></div>');
+  $("img.scale").imageScale();
+                            
+                        }
+                        else {
+                            $("#center").hide();
+                            $("#roben").hide();
+                            $("#runten").css("height", "100%").css('height', '-=6px');
+                            $("#right").css("width","80%");
+                            $('#knopfvorschau').html('<div class="bbbutton"><a type="button" class="stylish-button"><img  src="./img/zuklappen.gif"/></a></div>');
+                            $("img.scale").imageScale();
+                    }
+                    }
+                    
+                                        function ausblenden() {
+                       
+                        if(!$("#right").is(":visible"))  {
+                             $("#center").css("width","50%");
+                            $("#right").show();
+                              $('#knopf').html('<a type="button" class="stylish-button"><img  src="./img/aufklappen.gif"/></a>');
+  
+                            
+                        }
+                        else {
+                            $("#right").hide();
+                            $("#center").css("width","79%");
+                            $('#knopf').html('<a type="button" class="stylish-button"><img  src="./img/zuklappen.gif"/></a>');
+                        
+                    }
+                    }
+                    
+                    function search_change(searchtype) {
+                        $.ajax({
+                            type: "POST",
+                            url: "script/search_change.php",
+                            data: "search=" + searchtype
+                        });
+
+                        $("#raumbuch").jstree('refresh');
+
+
+                    }
+
+                    function refresh() {
+                        $("#raumbuch").jstree('refresh');
+                    }
+
+
+
+                </script>
+                <script type="text/javascript" >
+
+
+                    tinyMCE.init({
+                        mode: "textareas",
+                        theme: "advanced",
+                        plugins: "autolink,lists,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+                        // Theme options
+                        theme_advanced_buttons1: "fullscreen,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,fontselect,fontsizeselect,|,code,preview,print",
+                        theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,|,insertdate,inserttime,|,forecolor,backcolor",
+                        theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,iespell,media,|,spellchecker,|,visualchars,nonbreaking,insertfile,insertimage",
+                        theme_advanced_toolbar_location: "top",
+                        theme_advanced_toolbar_align: "left",
+                        theme_advanced_statusbar_location: "bottom",
+                        theme_advanced_resizing: true
+
+                    });
+                </script>
+                <script src="./jquery/jstree.min.js"></script>
+                <script>
+                    function openDocument(dokid) {
+                       
+                        $.ajax({
+                            type: "POST",
+                            url: 'script/opendocument.php',
+                            data: {"dokid": dokid},
+                            success: function(res) {
+                                $('#vorschau').html(res) // <==============================
+                                
+                                 $("img.scale").imageScale();
+                            }
+                        });
+                    }
+					
+					     function addFreigabe(id) {
+                       
+                        $.ajax({
+                            type: "POST",
+                            url: 'script/addFreigabe.php',
+                            data: {"id": id},
+                            success: function(res) {
+                                
+                            }
+                        });
+                    }
+					
+					function checkTimeout() {
+					
+					$.ajax({
+                       type: "POST",
+					   
+                       url: "script/checktimeout.php",
+                       cache: false,
+					   async: false,
+                       success: function(res){
+                       if(res == "1") {
+                       //alert('Ihre Sitzung ist abgelaufen, bitte melden Sie sich neu an!');
+					   openDialog("Sitzung abgelaufen","logoutmessage.php");
+					}}});
+					}
+
+                  
+					
+
+                    function openFoto(fotoid) {
+                        $.ajax({
+                            type: "POST",
+                            url: 'script/openfoto.php',
+                            data: {"fotoid": fotoid},
+                            success: function(res) {
+                                $('#lageplanbreit').html(res) // <==============================
+                               
+                            }
+                        });
+                    }
+
+
+
+                    $(function() { 
+					  
+
+                          setInterval(checkTimeout, 60000);
+                        // 6 create an instance when the DOM is ready
+                        $("#raumbuch").jstree({
+                            "state": {"key": "thfbaum"},
+                            "plugins": ["state", "wholerow", "search"],
+                            'core': {
+                                'data': {
+                                    'url': "./script/getchildren.php",
+                                    'type': 'POST',
+                                    'dataType': 'JSON',
+                                    'data': function(node) {
+
+                                        return {'id': node.id};
+                                    }
+                                }
+                            }
+
+                        });
+                     
+                        var to = false;
+                        $('#bquery').keyup(function() {
+                            if (to) {
+                                clearTimeout(to);
+                            }
+                            to = setTimeout(function() {
+                                var v = $('#bquery').val();
+								$('#raumbuch').jstree(true).search(v);
+                            }, 1500);
+                        });
+
+                        var gto = false;
+                        $('#gsearch').keyup(function() {
+                            if (gto) {
+                                clearTimeout(gto);
+                            }
+                            gto = setTimeout(function() {
+                                var v = $('#gsearch').val();
+                                openDialog("Suchergebnis", "./globalsearch.php?value=" + encodeURIComponent(v));
+                            }, 2000);
+                        });
+
+
+ 
+                        $('#raumbuch').bind("ready.jstree", function(e, data) {
+
+
+
+                            $('raumbuch').jstree("select_node", "1");
+                            $('#raumbuch').jstree("open_node", "1");
+                            //var selected= $('#raumbuch').jstree('get_selected');
+                            //alert(selected.length);
+                            //$('#raumbuch').jstree('select_node',"1");
+                        })
+                        $('#raumbuch').on("select_node.jstree", function(e, data) {
+                            var path = '#p' + data.selected[0];
+
+                            $('#raumbuch').jstree("open_node", '#' + data.selected[0]);
+
+                            $(path).attr('fill', 'rgb(200,200,200)');
+
+
+                            $.ajax({
+                                type: "POST",
+                                url: 'script/loadsvg.php',
+                                data: {"id": data.selected[0]},
+                                dataType: "json",
+                                success: function(res) {
+                                    $("#lageplanbreit").html(res[0]);
+                                    $(path).attr('fill', 'rgb(178,231,255)');
+                                 
+                                    var control = $('#svg2985').svgPanZoom({
+                                        zoomEnabled: true,
+                                        controlIconsEnabled: true,
+                                        fit: true,
+                                        center: true
+                                    });
+
+
+
+                                    var callback = function(control) {
+                                        return function(event) {
+                                            if ($(event.target).hasClass("fa-arrow-up"))
+                                                control.panUp()
+                                            if ($(event.target).hasClass("fa-arrow-down"))
+                                                control.panDown()
+                                            if ($(event.target).hasClass("fa-arrow-left"))
+                                                control.panLeft()
+                                            if ($(event.target).hasClass("fa-arrow-right"))
+                                                control.panRight()
+                                            if ($(event.target).hasClass("fa-plus"))
+                                                control.zoomIn()
+                                            if ($(event.target).hasClass("fa-minus"))
+                                                control.zoomOut()
+                                            if ($(event.target).hasClass("fa-refresh"))
+                                                control.reset()
+                                        }
+                                    };
+
+
+                                    $('#p' + res[2]).attr('fill', 'rgb(178,231,255)');
+                                    $('#elternid').html(res[2]);
+                                }
+                            });
+
+
+                                var $post = null;
+                          
+                           
+                            if (data.selected[0] >0) {
+                                $post ={"name":"oeffi","password":"THF2024#"};
+                            }
+
+
+
+
+
+
+                            $('#rubriken').empty();
+                            $.ajax({
+                                type: "POST",
+                                url: 'script/loadstartseite.php',
+                                data: {"id": data.selected[0]},
+                                success: function(res) {
+                                    $('#rubriken').html(res) // <==============================
+                                   
+                                }
+                            });
+							 $.ajax({
+                                type: "POST",
+                                url: 'script/loadzuordnung.php',
+                                data: {"id": data.selected[0]},
+                                success: function(res) {
+                                   
+                                    $('#Zuordnung').html(res);
+                                }
+                            });
+                            $('#center').html("-- bitte warten, lade Daten --");
+                            $.ajax({
+                                type: "POST",
+                                url: 'script/loadcenter.php',
+                                data: {"id": data.selected[0], "phase":1, "recht":0, "post": $post},
+                                success: function(res) {
+                                    $('#center').html(res);
+                                    $('#ms').DataTable({
+                                        "language": {
+                                            "url": "./jquery/dataTables.german.lang"
+                                        }});
+                                    tinyMCE.init({selector: 'textarea',
+                                        theme: "advanced",
+                                        plugins: "autolink,lists,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+                                        // Theme options
+                                        theme_advanced_buttons1: "fullscreen,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,fontselect,fontsizeselect,|,code,preview,print",
+                                        theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,|,insertdate,inserttime,|,forecolor,backcolor",
+                                        theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,iespell,media,|,spellchecker,|,visualchars,nonbreaking,insertfile,insertimage",
+                                        theme_advanced_toolbar_location: "top",
+                                        theme_advanced_toolbar_align: "left",
+                                        theme_advanced_statusbar_location: "bottom",
+                                        theme_advanced_resizing: true
+                                    });
+                                }
+                            });
+
+                            $.ajax({
+                                type: "POST",
+                                url: 'script/loadbreadcrumb.php',
+                                data: {"id": data.selected[0]},
+                                success: function(res) {
+                                    $('.breadcrumb').html(res) // <==============================
+
+                                }
+                            });
+
+                            $.ajax({
+                                type: "POST",
+                                url: 'script/loadfotomenu.php',
+                                data: {"id": data.selected[0]},
+                                success: function(res) {
+                                    $('#fotomenu').html(res) // <==============================
+
+                                }
+                            });
+
+                            $.ajax({
+                                type: "POST",
+                                url: 'script/loadnavimenu.php',
+                                data: {"id": data.selected[0]},
+                                success: function(res) {
+                                    $('#navimenu').html(res) // <==============================
+
+                                }
+                            });
+
+
+
+
+                        });
+
+
+                    });
+                </script>
+                <!--[if IE]>
+            <style type="text/css" media="screen">
+            #menu ul li {float: left; width: 100%;}
+            </style>
+            <![endif]-->
+                <!--[if lt IE 7]>
+                <style type="text/css" media="screen">
+                body {
+                behavior: url(csshover3.htc);
+                font-size: 100%;
+                }
+                
+                #menu ul li a {height: 1%;}
+                
+                #menu a, #menu h2 {
+                font: bold 0.7em/1.4em arial, helvetica, sans-serif;
+                }
+                </style>
+                <![endif]-->
+                <style type="text/css">
+                    a.infobox { text-decoration:none;color: #000 }
+                    a.infobox:hover { cursor:help; color:#c30; background:white; }
+                    a.infobox:active { color: #000 }
+                    a.infobox span { visibility:hidden; position:absolute; left:-99em;
+                                     margin-top:1.5em; padding:1em; text-decoration:none; }
+                    a.infobox:hover span, a.infobox:focus span, a.infobox:active span {
+                        visibility:visible; left:1em;
+                        border:1px solid #333; color:#222; background:white; font-size: 12px; }
+						.splitter {
+  flex: 0 0 auto;
+  width: 10px;  
+  background: url(https://raw.githubusercontent.com/RickStrahl/jquery-resizable/master/assets/vsizegrip.png) center center no-repeat #535353;
+  min-height: 200px;
+  cursor: col-resize;  
+}
+                    </style>
+                    <!--[if IE 5]><style type="text/css">
+                      a.infobox span { display:none; }
+                      a.infobox:hover span { display:block; }
+                    </style><![endif]-->
+                    					<script>
+					
+
+
+    
+
+
+
+
+
+
+
+
+
+					</script>
+                    <script type="text/javascript" >
+                        $(document).ready(function() {
+							  $( "#left_sub" ).resizable({
+								  
+								   handles: 'e', //'East' draggable edge
+  resize: function() {
+    $("#center").outerWidth( $("#left").outerWidth - $("#left_sub").outerWidth()-  $("#right").outerWidth());
+	var breite=$("#left").outerWidth();
+	var links=$("#left_sub").outerWidth();
+	var rechts=$("#right").outerWidth();
+	
+	 $("#center").outerWidth(breite-links-rechts-10);
+  }
+     
+    });
+    
+                            $('raumbuch').jstree("select_node", "1");
+                           
+                              $('#header').hide();
+							   $('#ms').DataTable({
+									    "order": [[ 0, "desc" ]]
+										
+										 });
+                           
+                        });
+                    
+                    </script>
+                    <script type="text/javascript">
+                        var ContentHeight = 400;
+
+                        var openAccordion = 1;
+
+
+
+			function adjust() {
+
+	$('body, html, #container').scrollTop(0);
+}
+                        function Get_Cookie(name) {
+                            var start = document.cookie.indexOf(name + "=");
+                            var len = start + name.length + 1;
+                            if ((!start) && (name != document.cookie.substring(0, name.length)))
+                                return null;
+                            if (start == -1)
+                                return null;
+                            var end = document.cookie.indexOf(";", len);
+                            if (end == -1)
+                                end = document.cookie.length;
+                            return unescape(document.cookie.substring(len, end));
+                        }
+                        // This function has been slightly modified
+                        function Set_Cookie(name, value, expires, path, domain, secure) {
+                            expires = expires * 60 * 60 * 24 * 1000;
+                            var today = new Date();
+                            var expires_date = new Date(today.getTime() + (expires));
+                            var cookieString = name + "=" + escape(value) +
+                                    ((expires) ? ";expires=" + expires_date.toGMTString() : "") +
+                                    ((path) ? ";path=" + path : "") +
+                                    ((domain) ? ";domain=" + domain : "") +
+                                    ((secure) ? ";secure" : "");
+                            document.cookie = cookieString;
+                        }
+                        /*
+                         End downloaded cookie functions
+                         */
+
+
+
+                        function initTree(index)
+                        {
+
+                            runAccordion(index);
+
+
+                            //loadDivPosition();
+                        }//
+
+
+
+
+
+
+                        function runAccordion(index)
+                        {
+                            var nID = "Accordion" + index + "Content";
+
+
+                            openingId = nID;
+
+                            closingId = openAccordion;
+
+
+
+                            var opening = (openingId == '') ? document.getElementById(closingId) : document.getElementById(openingId);
+                            var closing = (closingId == '') ? null : document.getElementById(closingId);
+
+                            if (opening != null)
+                            {
+                                if (opening.style.display != 'block')
+                                    opening.style.display = 'block';
+                                opening.style.height = '300px';
+                            }
+
+                            if (closing != null && opening != closing)
+                                closing.style.height = '0px';
+                            openAccordion = nID;
+							
+                        }
+
+                        function loadDivPosition() {
+
+                            var strCook = document.cookie;
+                            if (strCook.indexOf("!~") != 0) {
+                                var intS = strCook.indexOf("!~");
+                                var intE = strCook.indexOf("~!");
+                                var strPos = strCook.substring(intS + 2, intE);
+                                document.getElementById("raumbuch").scrollTop = strPos;
+                            }
+                        }
+                        ;
+
+                        function SetDivPosition() {
+
+                            var intY = document.getElementById("raumbuch").scrollTop;
+                            document.cookie = "yPos=!~" + intY + "~!";
+                        }
+                        ;
+
+                        function JumpToPosition(pos) {
+
+                            document.cookie = "yPos=!~" + pos + "~!";
+                        }
+                        ;
+
+                        function DelDivPosition() {
+                            var intY = 0;
+                            document.cookie = "yPos=!~" + intY + "~!";
+                        }
+                        ;
+
+
+                    </script>
+                    <script >
+
+                        function showAuswahl(id) {
+                            $("#raumbuch").jstree("deselect_all");
+                            $.ajax({
+                                type: "POST",
+                                url: 'script/loadsvg.php',
+                                data: {"id": id.value},
+                                dataType: "json",
+                                success: function(res) {
+                                    $("#lageplanbreit").html(res[0]);
+
+
+                                    var control = $('#svg2985').svgPanZoom({
+                                        zoomEnabled: true,
+                                        controlIconsEnabled: true,
+                                        fit: true,
+                                        center: true
+                                    });
+
+
+
+                                    var callback = function(control) {
+                                        return function(event) {
+                                            if ($(event.target).hasClass("fa-arrow-up"))
+                                                control.panUp()
+                                            if ($(event.target).hasClass("fa-arrow-down"))
+                                                control.panDown()
+                                            if ($(event.target).hasClass("fa-arrow-left"))
+                                                control.panLeft()
+                                            if ($(event.target).hasClass("fa-arrow-right"))
+                                                control.panRight()
+                                            if ($(event.target).hasClass("fa-plus"))
+                                                control.zoomIn()
+                                            if ($(event.target).hasClass("fa-minus"))
+                                                control.zoomOut()
+                                            if ($(event.target).hasClass("fa-refresh"))
+                                                control.reset()
+                                        }
+                                    };
+
+
+                                    $('#p' + id.value).attr('fill', 'rgb(178,231,255)');
+
+                                }
+                            });
+                            $.ajax({
+                                type: "POST",
+                                url: 'script/loadnodes.php',
+                                data: {"id": id.value},
+                                success: function(res) {
+                                    var nodes = res.split(",");
+                                    ;
+
+                                    for (var i = 0; i < nodes.length; ++i) {
+
+                                        $("#raumbuch").jstree("open_node", '#' + nodes[i]);
+                                        $elternid = nodes[i];
+                                    }
+                                }
+                            });
+                            $("#raumbuch").jstree("open_node", '#' + id.value);
+                            $("#raumbuch").jstree("select_node", '#' + id.value);
+
+                            //$("#raumbuch").jstree("select_node", '#'+bid);
+                            document.getElementById(id.value).scrollIntoView(true);
+
+                        }
+
+
+
+
+                        function showEbene(id) {
+                            $("#raumbuch").jstree("deselect_all");
+                            $.ajax({
+                                type: "POST",
+                                url: 'script/loadsvg.php',
+                                data: {"id": id},
+                                dataType: "json",
+                                success: function(res) {
+                                    $("#lageplanbreit").html(res[0]);
+
+
+                                    var control = $('#svg2985').svgPanZoom({
+                                        zoomEnabled: true,
+                                        controlIconsEnabled: true,
+                                        fit: true,
+                                        center: true
+                                    });
+
+                                    $("#raumbuch").jstree("select_node", '#' + res[2]);
+
+                                    var callback = function(control) {
+                                        return function(event) {
+                                            if ($(event.target).hasClass("fa-arrow-up"))
+                                                control.panUp()
+                                            if ($(event.target).hasClass("fa-arrow-down"))
+                                                control.panDown()
+                                            if ($(event.target).hasClass("fa-arrow-left"))
+                                                control.panLeft()
+                                            if ($(event.target).hasClass("fa-arrow-right"))
+                                                control.panRight()
+                                            if ($(event.target).hasClass("fa-plus"))
+                                                control.zoomIn()
+                                            if ($(event.target).hasClass("fa-minus"))
+                                                control.zoomOut()
+                                            if ($(event.target).hasClass("fa-refresh"))
+                                                control.reset()
+                                        }
+                                    };
+
+
+                                    $('#p' + res[2]).attr('fill', 'rgb(178,231,255)');
+
+                                }
+                            });
+                        }
+
+                        function showData(evt) {
+                            $("#raumbuch").jstree("deselect_all");
+                            var data = evt.target.attributes.getNamedItem("id");
+                            var bid = 0;
+                            if (!data)
+                                
+                                data = evt.currentTarget.attributes.getNamedItem("id");
+                            if (data) {
+                                bid = data.value.replace(/p/i, "");
+                            }
+                            $.ajax({
+                                type: "POST",
+                                url: 'script/loadnodes.php',
+                                data: {"id": bid},
+                                success: function(res) {
+                                    var nodes = res.split(",");
+                                    ;
+
+                                    for (var i = 0; i < nodes.length; ++i) {
+
+                                        $("#raumbuch").jstree("open_node", '#' + nodes[i]);
+                                        $elternid = nodes[i];
+                                    }
+                                }
+                            });
+                            $("#raumbuch").jstree("open_node", '#' + bid);
+                            $("#raumbuch").jstree("select_node", '#' + bid);
+
+                            //$("#raumbuch").jstree("select_node", '#'+bid);
+                            document.getElementById(bid).scrollIntoView(true);
+
+                        }
+						
+						function showArray(data) {
+							console.log(data);
+							data=Object.values(data);
+							data.forEach(showGlobal);
+							//data.forEach(showGlobal);
+							//data.forEach(showGlobal);
+						
+						}
+						
+						                        function showGlobal(id,index) {
+												
+                            $("#raumbuch").jstree("deselect_all");
+                           
+                            var bid = id;
+                           
+                            $.ajax({
+                                type: "POST",
+                                url: 'script/loadnodes.php',
+                                data: {"id": bid},
+                                success: function(res) {
+                                    var nodes = res.split(",");
+                                    ;
+
+                                    for (var i = 0; i < nodes.length; ++i) {
+
+                                        $("#raumbuch").jstree("open_node", '#' + nodes[i]);
+                                        $elternid = nodes[i];
+                                    }
+                                }
+                            });
+                            $("#raumbuch").jstree("open_node", '#' + bid);
+                            $("#raumbuch").jstree("select_node", '#' + bid);
+
+                            //$("#raumbuch").jstree("select_node", '#'+bid);
+                            document.getElementById(bid).scrollIntoView(true);
+
+                        }
+
+
+
+                    </script>
+
+                    </head>
+                    <body onload="initTree(1);">
+
+                        <div id="container">
+                        <div id="header">
+                            <div id='headerleft'>&nbsp;</div><div id='headercenter'>&nbsp;</div><div id='headerright'>&nbsp;</div>
+                        </div>
+                        <div>
+
+<ul id="menu-bar">
+    <li><img style="margin-right:15px;" height="35px" src="./img/logorechts.jpg"/></li>
+
+    <li class="active"><a href="startseite.php">Raumbuch</a></li>
+ 
+<!-- <ul><li><a href="startseite.php?id=1&phase=2">Ma&szlig;nahmen/Empfehlungen</a></li></ul>-->
+
+
+ <li><a href="endsession.php">Logout</a></li>
+
+    <div  id="globalsearch"> Globale Suche:<input type="text" id="gsearch" name="gsearch"/></div>
+<div style="float:right;padding-right:150px"><a style="padding: 3px 8px 0px 0px;" target="_blank" href="/thf/handbuch/Leseversion.pdf"><img title="Handbuch" style="width:30px" src="/thf/img/manual.png"/></a></div>
+</ul>
+                        </div>
+                            <div class="breadcrumb"></div>
+                        <div id="left">  <div id="left_sub">
+                                <div id="struktur" class="basicbox"  style="height: calc(70% - 6px)">
+                                    <div class="bbheader"> <div class="bbtext">Geb&auml;udestruktur</div><div class="bquery"><input  id="bquery" size="8" type="text" name="bquery"/></div><div class="bbbutton"><a class='stylish-button'  onclick="refresh()" ><img  src="img/rotateright.png"/></a></div></div>
+                             
+                                    <div class="basicboxinside" style="overflow: hidden" ><div id="raumbuch"></div>     
+                               
+                                </div>
+                                    </div>
+                                    <div class="basicbox" style="height: calc(30% - 6px)">
+                                  <div class="bbheader"> <div class="bbtext" id="Zuordnung">Dokumente zugeordnet zu Flughafen Tempelhof</div></div>
+                                <div class="basicboxinside" id="rubriken">
+                                    <script type="text/javascript">
+                                        function openDialog(title, url) {
+                                            $('.opened-dialogs').dialog("close");
+
+                                            $('<div class="opened-dialogs" >').html('loading...').dialog({
+                                                position: ['center', 20],
+                                                open: function() {
+                                                    $(this).load(url);
+
+                                                },
+                                                close: function(event, ui) {
+                                                    $(this).remove();
+                                                },
+                                                title: title,
+                                                minWidth: 800,
+                                                modal: false
+                                                
+
+                                            }).css({height: "600px", overflow: "auto",zIndex: "1000"});
+
+                                            return false;
+                                        }
+
+   function openDialogOffen(id) {
+                                            $('.opened-dialogs').dialog("close");
+
+                                            $('<div class="opened-dialogs" >').html('loading...').dialog({
+                                                position: ['center', 20],
+                                                open: function() {
+                                                    $(this).load('./script/dokumenteoffen.php?id='+id);
+
+                                                },
+                                                close: function(event, ui) {
+                                                    $(this).remove();
+                                                },
+                                                title: 'Dokumentliste',
+                                                minWidth: 800,
+                                                modal: false
+                                                
+
+                                            }).css({height: "600px", overflow: "auto",zIndex: "1000"});
+
+                                            return false;
+                                        }
+
+                                        function openInfoDialog() {
+                                            
+                                            $("#infoDialog").dialog({
+                                                modal: false,
+                                                title: 'Informationen zur Suche',
+                                                height: 320,
+                                                width: 400,
+                                                overlay: {opacity: 0.5, background: 'black'}
+                                            });
+
+                                        };
+
+                                    </script>
+                                </div>
+                            </div>
+                            </div>
+                       
+                            <div id="center" >
+							
+                                <!--<h4>Bitte einen Eintrag in der Geb&auml;udestruktur anklicken</h4>-->
+
+
+                            </div>
+                        
+                           <div id="right"> <div id="roben" class="basicbox">
+                                <div class="bbheader"> <div class="bbtext"><div  id="fotomenu">
+
+
+                                </div>   </div><div class="bbbutton"><div id='knopflageplan' onclick='ausblendenMitteVorschau()'><a  class="stylish-button"><img  src="./img/aufklappen.gif"/></a></div></div>  </div>
+                                <div class="basicboxinside" style="overflow: hidden;">
+                                    <div style='position:relative;top: 0px;left: 0px' id='controls'>
+                                        <a class='stylish-button' onclick="$('#svg2985').svgPanZoom().zoomIn();" type='button' ><img src='/thf/img/p.gif'/></a>
+                                        <a class='stylish-button' onclick="$('#svg2985').svgPanZoom().zoomOut();" type='button' ><img src='/thf/img/m.gif'/></a>
+                                        <a class='stylish-button' onclick="$('#svg2985').svgPanZoom().panRight();" type='button' ><img src='/thf/img/l.gif'/></a>
+                                        <a class='stylish-button' onclick="$('#svg2985').svgPanZoom().panLeft();" type='button' ><img src='/thf/img/r.gif'/></a>
+                                        <a class='stylish-button' onclick="$('#svg2985').svgPanZoom().panDown();" type='button' ><img src='/thf/img/u.gif'/></a>
+                                        <a class='stylish-button' onclick="$('#svg2985').svgPanZoom().panUp();" type='button' ><img src='/thf/img/d.gif'/></a>
+                                        gehe zu:
+                                        <span id="navimenu"></span>
+                                    </div>
+
+                                    <div id="lageplanbreit">
+
+
+                                    </div><div id='elternid' style='display: none'/>
+                                </div></div></div>
+                                     <div id="runten"  class="basicbox">
+                                         <div class="bbheader"> <div class="bbtext">Dokumentenvorschau</div><div id='knopfvorschau' onclick='ausblendenMitteLageplan()'><div class="bbbutton"><a type="button" class="stylish-button"><img  src="./img/aufklappen.gif"/></a></div></div></div>
+                                 <div class="basicboxinside" id="vorschau">
+                                
+
+                                </div>
+                                     </div>
+                            </div>
+                            
+                       
+                   
+
+     
+                    <div id="infoDialog" style="display:none">
+                        <p>Informationen zu den unterschiedlichen Suchm&ouml;glichkeiten:
+                            <ul>
+                                <li><b>Exakte Suche:</b><br/> sucht nur nach Dokumenten die direkt dem gew&auml;hlten Eintrag zugeordnet sind</li>
+                                <li><b>Kumulierte Suche:</b><br/> sucht nach Dokumenten die dem gew&auml;hlten Eintrag und allen Ebenen darunter zugeordnet sind</li>
+                            </ul>
+                        </p>
+                    </div>
+                        </div>
+                                  </body>
+                </html>
+                
