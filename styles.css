@@ -587,7 +587,7 @@ a:hover{text-decoration:none}
 .footer-brand {
   display: inline-block;
   margin-bottom: 1rem;
-  filter: brightness(0) invert(1); /* Logo in Weiß */
+  filter: brightness(0) invert(0); /* Logo in Weiß */
 }
 
 .footer-title {
