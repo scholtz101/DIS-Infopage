@@ -5,120 +5,15 @@
   <title>Informationen über das DIS – Denkmalinformationssystem Tempelhof</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
   <!-- Skip-Link für Tastatur -->
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-  <!-- THF Header mit gelber Leiste -->
-  <header class="site-header site-header--thf" role="banner">
-    <div class="head-flex">
-      <!-- THF Logo -->
-      <a class="brand" href="/" aria-label="THF – Startseite">
-        <img src="https://www.thf-berlin.de/_assets/616c6a00a4c43ca7e5845da9208c60b2/Images/Logo_THF.svg" alt="Flughafen Tempelhof Logo" width="140" height="36">
-      </a>
-
-      <!-- Leichte Sprache Button -->
-      <button id="easySwitch" class="ls-toggle" aria-pressed="false" type="button">LEICHTE SPRACHE</button>
-
-      <!-- Sprachumschalter -->
-      <div class="language-switch">
-        <span>DE</span>/<a href="#en">EN</a>
-      </div>
-
-      <!-- Suchfeld -->
-      <form class="site-search" role="search" aria-label="Website durchsuchen">
-        <label for="search-input" class="visually-hidden">Suchbegriff eingeben</label>
-        <input id="search-input" type="search" placeholder="Suche..." aria-label="Suchbegriff eingeben">
-        <button type="submit" aria-label="Suchen">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
-      </form>
-
-      <!-- Burger Menü (wird zu X, wenn geöffnet) -->
-      <button id="burgerToggle" class="burger-toggle" aria-expanded="false" aria-controls="megaOverlay" aria-label="Menü öffnen" type="button">
-        <span class="bar bar-1"></span>
-        <span class="bar bar-2"></span>
-        <span class="bar bar-3"></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Mega-Menü Overlay UNTER dem Header -->
-  <div id="megaOverlay" class="mega-overlay" hidden>
-    <div class="mega-grid">
-      <div class="mega-col">
-        <h3 class="section-title">Über Uns</h3>
-        <ul>
-          <li><a href="/#denkmalpflegeplan">Denkmalpflegeplan und Denkmalkonzept</a></li>
-          <li><a href="informationen-dis.html">Informationen über das DIS</a></li>
-          <li><a href="/#dis-anmeldung">DIS Anmeldung beantragen</a></li>
-          <li><a href="/#ansprechpartner">Ansprechpartner THF</a></li>
-        </ul>
-      </div>
-      <div class="mega-col">
-        <h3 class="section-title">Flughafen Tempelhof</h3>
-        <ul>
-          <!-- Neuer Menüpunkt "Raumbuch THF" als Hauptebene -->
-          <li><a href="index.html">Raumbuch THF</a></li>
-          
-          <li>
-            <span class="tree-toggle-wrapper">
-              <span>A1 Vorfeld</span>
-              <button class="tree-toggle" aria-expanded="false" aria-controls="tree-a1-vorfeld" type="button"></button>
-            </span>
-            <ul id="tree-a1-vorfeld" class="submenu" hidden>
-              <li>
-                <span class="tree-toggle-wrapper">
-                  <span>Rollfeldebene</span>
-                  <button class="tree-toggle" aria-expanded="false" aria-controls="tree-rollfeldebene" type="button">▼</button>
-                </span>
-                <ul id="tree-rollfeldebene" class="submenu submenu-level-2">
-                  <li><a href="#">üv</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#">B</a></li>
-          <li><a href="#">H2lang</a></li>
-          <li>
-            <span class="tree-toggle-wrapper">
-              <span>H2rund</span>
-              <button class="tree-toggle" aria-expanded="false" aria-controls="tree-h2rund" type="button">▼</button>
-            </span>
-            <ul id="tree-h2rund" class="submenu">
-              <li><a href="#">Fassade</a></li>
-              <li><a href="#">1.UG</a></li>
-              <li><a href="#">2.UG</a></li>
-              <li><a href="#">DG</a></li>
-              <li><a href="#">Ebene 1</a></li>
-              <li><a href="#">Ebene 2</a></li>
-              <li><a href="#">Ebene 3</a></li>
-              <li><a href="#">Ebene 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Treppenturm 01</a></li>
-        </ul>
-      </div>
-      <div class="mega-col">
-        <h3 class="section-title">Rechtliches</h3>
-        <ul>
-          <li><a href="/#barrierefreiheit">Barrierefreiheit</a></li>
-          <li><a href="/#leichte-sprache">Leichte Sprache</a></li>
-          <li><a href="/#datenschutz">Datenschutz</a></li>
-          <li><a href="/#agb">AGB</a></li>
-          <li><a href="/#impressum">Impressum</a></li>
-        </ul>
-      </div>
-    </div>
-    
-    <!-- Schließen-Button unten -->
-    <div class="menu-footer">
-      <button id="menuCloseBtn" class="menu-close-btn">Menü schließen</button>
-    </div>
-  </div>
+  <!-- Container für Header-Einbindung -->
+  <div id="header-container"></div>
 
   <!-- Breadcrumbs -->
   <nav class="breadcrumbs" aria-label="Brotkrumen">
@@ -145,7 +40,7 @@
     <!-- Hero-Bild -->
     <section id="hero" class="section">
       <div class="hero-container">
-        <img src="dis-screenshot.png" alt="Screenshot des Denkmalinformationssystems Tempelhof" class="hero-image">
+        <img src="images/dis-screenshot.png" alt="Screenshot des Denkmalinformationssystems Tempelhof" class="hero-image">
       </div>
     </section>
 
@@ -244,7 +139,7 @@
       
       <!-- Feature-Bild -->
       <div class="feature-image-container">
-        <img src="dis-einfuehrung.png" alt="Übersicht der DIS-Benutzeroberfläche mit nummerierten Bereichen" class="feature-image">
+        <img src="images/dis-einfuehrung.png" alt="Übersicht der DIS-Benutzeroberfläche mit nummerierten Bereichen" class="feature-image">
       </div>
       
       <!-- Erklärung der Punkte als Akkordeon -->
@@ -323,18 +218,6 @@
       </div>
     </section>
 
-    <!-- Call-to-Action Bereich -->
-    <section id="cta" class="section cta-section">
-      <div class="cta-container">
-        <h2 class="cta-title">Haben wir Ihr Interesse geweckt?</h2>
-        <p class="cta-text">Beantragen Sie hier einen Zugang zum Denkmalinformationssystem und entdecken Sie das architektonische Erbe des Flughafens Tempelhof in seiner vollen Tiefe.</p>
-        <div class="cta-buttons">
-          <a href="/#dis-anmeldung" class="btn btn-primary">Zugang beantragen</a>
-          <a href="index.html" class="btn btn-secondary">Mehr über das Raumbuch erfahren</a>
-        </div>
-      </div>
-    </section>
-
     <!-- Downloads -->
     <section id="downloads" class="section card">
       <h2>Weiterführende Materialien</h2>
@@ -353,192 +236,24 @@
         </li>
       </ul>
     </section>
+    
+    <!-- Call-to-Action -->
+    <section id="cta" class="section cta-section">
+      <div class="cta-container">
+        <h2 class="cta-title">Haben wir Ihr Interesse geweckt?</h2>
+        <p class="cta-text">Beantragen Sie hier einen Zugang zum Denkmalinformationssystem und entdecken Sie das architektonische Erbe des Flughafens Tempelhof in seiner vollen Tiefe.</p>
+        <div class="cta-buttons">
+          <a href="/#dis-anmeldung" class="btn btn-primary">Zugang beantragen</a>
+          <a href="index.html" class="btn btn-secondary">Mehr über das Raumbuch erfahren</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- THF-Style Footer -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-main">
-      <div class="wrap">
-        <div class="footer-grid">
-          <!-- Spalte 1: Logo und Kontakt -->
-          <div class="footer-col">
-            <a class="brand footer-brand" href="/" aria-label="THF – Startseite">
-              <img src="https://www.thf-berlin.de/_assets/616c6a00a4c43ca7e5845da9208c60b2/Images/Logo_THF.svg" alt="Flughafen Tempelhof Logo" width="140" height="36">
-            </a>
-            <address class="footer-address">
-              Flughafen Tempelhof<br>
-              Denkmalpflege<br>
-              Platz der Luftbrücke 5<br>
-              12101 Berlin
-            </address>
-            <a href="mailto:kontakt@dis-thf.de" class="footer-contact">kontakt@dis-thf.de</a>
-          </div>
-          
-          <!-- Spalte 2: Über Uns -->
-          <div class="footer-col">
-            <h3 class="footer-title">Über Uns</h3>
-            <ul class="footer-nav">
-              <li><a href="/#denkmalpflegeplan">Denkmalpflegeplan und Denkmalkonzept</a></li>
-              <li><a href="informationen-dis.html">Informationen über das DIS</a></li>
-              <li><a href="/#dis-anmeldung">DIS Anmeldung beantragen</a></li>
-              <li><a href="/#ansprechpartner">Ansprechpartner THF</a></li>
-            </ul>
-          </div>
-          
-          <!-- Spalte 3: Flughafen Tempelhof -->
-          <div class="footer-col">
-            <h3 class="footer-title">Flughafen Tempelhof</h3>
-            <ul class="footer-nav">
-              <li><a href="index.html">Raumbuch THF</a></li>
-              <li><a href="#">A1 Vorfeld</a></li>
-              <li><a href="#">B</a></li>
-              <li><a href="#">H2lang</a></li>
-              <li><a href="#">H2rund</a></li>
-              <li><a href="#">Treppenturm 01</a></li>
-            </ul>
-          </div>
-          
-          <!-- Spalte 4: Rechtliches -->
-          <div class="footer-col">
-            <h3 class="footer-title">Rechtliches</h3>
-            <ul class="footer-nav">
-              <li><a href="/barrierefreiheitserklaerung.html">Barrierefreiheit</a></li>
-              <li><a href="/#leichte-sprache">Leichte Sprache</a></li>
-              <li><a href="/#datenschutz">Datenschutz</a></li>
-              <li><a href="/#agb">AGB</a></li>
-              <li><a href="/#impressum">Impressum</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Copyright-Leiste unten -->
-    <div class="footer-bottom">
-      <div class="wrap">
-        <div class="footer-bottom-flex">
-          <p class="footer-copyright">© 2025 Denkmalinformationssystem Flughafen Tempelhof</p>
-          <div class="footer-socials">
-            <a href="#" aria-label="Besuchen Sie uns auf LinkedIn" class="social-link">
-              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-            </a>
-            <a href="#" aria-label="Besuchen Sie uns auf Instagram" class="social-link">
-              <i class="fab fa-instagram" aria-hidden="true"></i>
-            </a>
-            <a href="#" aria-label="Besuchen Sie uns auf Facebook" class="social-link">
-              <i class="fab fa-facebook-f" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- Container für Footer-Einbindung -->
+  <div id="footer-container"></div>
 
-  <!-- JavaScript -->
-  <script>
-    // Utility-Funktionen
-    const qs = (s, el=document) => el.querySelector(s);
-    const qsa = (s, el=document) => [...el.querySelectorAll(s)];
-
-    // Burger Menü öffnen/schließen
-    const burgerToggle = qs('#burgerToggle');
-    const megaOverlay = qs('#megaOverlay');
-    const menuCloseBtn = qs('#menuCloseBtn');
-
-    // Menü öffnen/schließen mit Burger-Button (der zum X wird)
-    burgerToggle.addEventListener('click', () => {
-      const expanded = burgerToggle.getAttribute('aria-expanded') === 'true';
-      toggleMenu(!expanded); // Umkehren des aktuellen Status
-    });
-    
-    // Menü mit Footer-Button schließen
-    menuCloseBtn.addEventListener('click', () => {
-      toggleMenu(false);
-    });
-
-    // Menü-Status umschalten
-    function toggleMenu(shouldOpen) {
-      burgerToggle.setAttribute('aria-expanded', String(shouldOpen));
-      megaOverlay.hidden = !shouldOpen;
-      
-      if (shouldOpen) {
-        document.body.classList.add('menu-open');
-        burgerToggle.setAttribute('aria-label', 'Menü schließen');
-      } else {
-        document.body.classList.remove('menu-open');
-        burgerToggle.setAttribute('aria-label', 'Menü öffnen');
-      }
-    }
-
-    // Tree toggles im Overlay
-    qsa('.tree-toggle').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        const targetId = btn.getAttribute('aria-controls');
-        const target = qs('#' + targetId);
-        btn.setAttribute('aria-expanded', String(!expanded));
-        if (target) {
-          target.hidden = expanded;
-        }
-      });
-    });
-
-    // „Leichte Sprache" umschalten (falls vorhanden)
-    qs('#easySwitch')?.addEventListener('click', e => {
-      const pressed = e.currentTarget.getAttribute('aria-pressed') === 'true';
-      e.currentTarget.setAttribute('aria-pressed', String(!pressed));
-      // Logik zum Umschalten der Inhalte
-    });
-    
-    // Akkordeon-Funktionalität
-    document.querySelectorAll('.accordion-button').forEach(button => {
-      button.addEventListener('click', () => {
-        const expanded = button.getAttribute('aria-expanded') === 'true';
-        button.setAttribute('aria-expanded', !expanded);
-        
-        const contentId = button.getAttribute('aria-controls');
-        const content = document.getElementById(contentId);
-        
-        if (content) {
-          content.hidden = expanded;
-        }
-      });
-    });
-
-    // Responsive-Anpassungen je nach Bildschirmgröße
-    function handleResponsiveLayout() {
-      const isMobile = window.innerWidth < 768;
-      
-      // Anpassungen für mobile Geräte
-      if (isMobile) {
-        // Header-Elemente für Mobilgeräte optimieren
-        document.querySelectorAll('.language-switch, .ls-toggle').forEach(el => {
-          el.classList.add('mobile-compact');
-        });
-        
-        // Vereinfachte Navigation für mobile Geräte
-        document.querySelectorAll('.accordion-button span:first-child').forEach(span => {
-          if (span.textContent.length > 30) {
-            span.setAttribute('data-full-text', span.textContent);
-            span.textContent = span.textContent.substring(0, 27) + '...';
-          }
-        });
-      } else {
-        // Desktop-Layout wiederherstellen
-        document.querySelectorAll('.language-switch, .ls-toggle').forEach(el => {
-          el.classList.remove('mobile-compact');
-        });
-        
-        // Volle Texte wiederherstellen
-        document.querySelectorAll('.accordion-button span[data-full-text]').forEach(span => {
-          span.textContent = span.getAttribute('data-full-text');
-        });
-      }
-    }
-    
-    // Initial ausführen und bei Größenänderungen
-    handleResponsiveLayout();
-    window.addEventListener('resize', handleResponsiveLayout);
-  </script>
+  <!-- JavaScript-Einbindung -->
+  <script src="js/main.js"></script>
 </body>
 </html>

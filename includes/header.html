@@ -1,0 +1,110 @@
+<!-- THF Header mit oranger Leiste -->
+<header class="site-header site-header--thf" role="banner">
+  <div class="head-flex">
+    <!-- THF Logo -->
+    <a class="brand" href="index.html" aria-label="THF – Startseite">
+      <img src="images/Logo_THF.svg" alt="Flughafen Tempelhof Logo" width="140" height="36">
+    </a>
+
+    <div class="header-right">
+      <!-- Leichte Sprache Button -->
+      <button id="easySwitch" class="ls-toggle" aria-pressed="false" type="button">LEICHTE SPRACHE</button>
+
+      <!-- Sprachumschalter -->
+      <div class="language-switch">
+        <span>DE</span>/<a href="#en">EN</a>
+      </div>
+
+      <!-- Suchfeld -->
+      <form class="site-search" role="search" aria-label="Website durchsuchen">
+        <label for="search-input" class="visually-hidden">Suchbegriff eingeben</label>
+        <input id="search-input" type="search" placeholder="Suche..." aria-label="Suchbegriff eingeben">
+        <button type="submit" aria-label="Suchen">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <!-- Burger Menü (wird zu X, wenn geöffnet) -->
+      <button id="burgerToggle" class="burger-toggle" aria-expanded="false" aria-controls="megaOverlay" aria-label="Menü öffnen" type="button">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mega-Menü Overlay UNTER dem Header -->
+<div id="megaOverlay" class="mega-overlay" hidden>
+  <div class="mega-grid">
+    <div class="mega-col">
+      <h3 class="section-title">Über Uns</h3>
+      <ul>
+        <!-- Megamenü-Links -->
+        <li><a href="index.html#denkmalpflegeplan">Denkmalpflegeplan und Denkmalkonzept</a></li>
+        <li><a href="informationen-dis.html">Informationen über das DIS</a></li>
+        <li><a href="index.html#dis-anmeldung">DIS Anmeldung beantragen</a></li>
+        <li><a href="index.html#ansprechpartner">Ansprechpartner THF</a></li>
+      </ul>
+    </div>
+    <div class="mega-col">
+      <h3 class="section-title">Flughafen Tempelhof</h3>
+      <ul>
+        <!-- Neuer Menüpunkt "Raumbuch THF" als Hauptebene -->
+        <li><a href="index.html">Raumbuch THF</a></li>
+        
+        <li>
+          <span class="tree-toggle-wrapper">
+            <span>A1 Vorfeld</span>
+            <button class="tree-toggle" aria-expanded="false" aria-controls="tree-a1-vorfeld" type="button"></button>
+          </span>
+          <ul id="tree-a1-vorfeld" class="submenu" hidden>
+            <li>
+              <span class="tree-toggle-wrapper">
+                <span>Rollfeldebene</span>
+                <button class="tree-toggle" aria-expanded="false" aria-controls="tree-rollfeldebene" type="button">▼</button>
+              </span>
+              <ul id="tree-rollfeldebene" class="submenu submenu-level-2">
+                <li><a href="#">üv</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#">B</a></li>
+        <li><a href="#">H2lang</a></li>
+        <li>
+          <span class="tree-toggle-wrapper">
+            <span>H2rund</span>
+            <button class="tree-toggle" aria-expanded="false" aria-controls="tree-h2rund" type="button">▼</button>
+          </span>
+          <ul id="tree-h2rund" class="submenu">
+            <li><a href="#">Fassade</a></li>
+            <li><a href="#">1.UG</a></li>
+            <li><a href="#">2.UG</a></li>
+            <li><a href="#">DG</a></li>
+            <li><a href="#">Ebene 1</a></li>
+            <li><a href="#">Ebene 2</a></li>
+            <li><a href="#">Ebene 3</a></li>
+            <li><a href="#">Ebene 4</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Treppenturm 01</a></li>
+      </ul>
+    </div>
+    <div class="mega-col">
+      <h3 class="section-title">Rechtliches</h3>
+      <ul>
+        <li><a href="/#barrierefreiheit">Barrierefreiheit</a></li>
+        <li><a href="/#leichte-sprache">Leichte Sprache</a></li>
+        <li><a href="/#datenschutz">Datenschutz</a></li>
+        <li><a href="/#agb">AGB</a></li>
+        <li><a href="/#impressum">Impressum</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Schließen-Button unten -->
+  <div class="menu-footer">
+    <button id="menuCloseBtn" class="menu-close-btn">Menü schließen</button>
+  </div>
+</div>

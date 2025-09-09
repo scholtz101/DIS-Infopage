@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>DIS Zugangsantrag - Denkmalinformationssystem Tempelhof</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Beantragen Sie Ihren persönlichen Zugang zum Denkmalinformationssystem (DIS) des Flughafens Tempelhof">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <!-- Skip-Link für Tastatur -->
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- Container für Header-Einbindung -->
+  <div id="header-container"></div>
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Brotkrümelnavigation">
+    <ol>
+      <li><a href="index.html">Startseite</a></li>
+      <li>DIS Zugangsantrag</li>
+    </ol>
+  </nav>
+
+  <main id="main" class="wrap" role="main">
+    <section class="section">
+      <div class="form-container">
+        <div class="form-header">
+          <h1>Zugangsantrag zum Denkmalinformationssystem</h1>
+          <p>Bitte füllen Sie das Formular aus, um einen persönlichen Zugang zum THF-DIS zu beantragen.</p>
+        </div>
+
+        <div class="form-body">
+          <form id="dis-access-form" action="#" method="post">
+            <!-- Persönliche Informationen -->
+            <fieldset>
+              <legend>Persönliche Informationen</legend>
+              
+              <div class="form-row">
+                <div class="form-col form-col-half">
+                  <div class="form-group form-group-small">
+                    <label for="anrede" class="required-field">Anrede</label>
+                    <select id="anrede" name="anrede" class="form-control" required>
+                      <option value="">Bitte wählen</option>
+                      <option value="Herr">Herr</option>
+                      <option value="Frau">Frau</option>
+                      <option value="Divers">Divers</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-col form-col-half">
+                  <div class="form-group form-group-small">
+                    <label for="titel">Titel</label>
+                    <input type="text" id="titel" name="titel" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-col form-col-half">
+                  <div class="form-group">
+                    <label for="vorname" class="required-field">Vorname</label>
+                    <input type="text" id="vorname" name="vorname" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="form-col form-col-half">
+                  <div class="form-group">
+                    <label for="nachname" class="required-field">Nachname</label>
+                    <input type="text" id="nachname" name="nachname" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group form-group-limited">
+                <label for="email" class="required-field">E-Mail-Adresse</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+                <div class="form-description">Diese E-Mail wird für die Zugangsdaten verwendet.</div>
+              </div>
+
+              <div class="form-group form-group-small">
+                <label for="telefon">Telefonnummer</label>
+                <input type="tel" id="telefon" name="telefon" class="form-control">
+              </div>
+            </fieldset>
+
+            <!-- Organisationsinformationen -->
+            <fieldset>
+              <legend>Organisation & Funktion</legend>
+              
+              <div class="form-group form-group-limited">
+                <label for="organisation" class="required-field">Organisation / Firma / Institution</label>
+                <input type="text" id="organisation" name="organisation" class="form-control" required>
+              </div>
+
+              <div class="form-group form-group-limited">
+                <label for="funktion" class="required-field">Ihre Funktion / Position</label>
+                <input type="text" id="funktion" name="funktion" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label for="adresse" class="required-field">Adresse der Organisation</label>
+                <textarea id="adresse" name="adresse" class="form-control" rows="3" required></textarea>
+              </div>
+            </fieldset>
+
+            <!-- Zugangsdetails -->
+            <fieldset>
+              <legend>Zugangsdetails</legend>
+              
+              <div class="form-group">
+                <label>Art des gewünschten Zugangs</label>
+                
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="zugangsart" value="lesend" checked>
+                    Lesender Zugriff (Standard)
+                  </label>
+                </div>
+                
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="zugangsart" value="bearbeitend">
+                    Bearbeitender Zugriff (nur für autorisierte Personen)
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="begründung" class="required-field">Begründung / Verwendungszweck</label>
+                <textarea id="begründung" name="begründung" class="form-control" rows="4" required></textarea>
+                <div class="form-description">Bitte erläutern Sie kurz, wofür Sie den Zugang zum DIS benötigen.</div>
+              </div>
+
+              <div class="form-group form-group-small">
+                <label for="zeitraum" class="required-field">Gewünschter Zugangszeitraum</label>
+                <select id="zeitraum" name="zeitraum" class="form-control" required>
+                  <option value="">Bitte wählen</option>
+                  <option value="1monat">1 Monat</option>
+                  <option value="3monate">3 Monate</option>
+                  <option value="6monate">6 Monate</option>
+                  <option value="1jahr">1 Jahr</option>
+                  <option value="unbegrenzt">Unbegrenzt (nur für Projektpartner)</option>
+                </select>
+              </div>
+
+              <!-- Optional: Dokument-Upload -->
+              <div class="form-group">
+                <label for="dokument">Legitimation (optional)</label>
+                <div class="file-upload">
+                  <label for="dokument" class="file-upload-btn">Dokument auswählen</label>
+                  <input type="file" id="dokument" name="dokument" accept=".pdf,.doc,.docx">
+                  <span class="file-name" id="file-name">Keine Datei ausgewählt</span>
+                </div>
+                <div class="form-description">Falls erforderlich, laden Sie bitte ein Bestätigungsschreiben Ihrer Organisation hoch (PDF, max. 5MB).</div>
+              </div>
+            </fieldset>
+
+            <!-- Zustimmungen -->
+            <fieldset>
+              <legend>Zustimmungen</legend>
+              
+              <div class="checkbox-group">
+                <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                <label for="datenschutz" class="checkbox-label required-field">
+                  Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und stimme zu, dass meine Daten zur Bearbeitung dieses Antrags gespeichert werden.
+                </label>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="nutzungsbedingungen" name="nutzungsbedingungen" required>
+                <label for="nutzungsbedingungen" class="checkbox-label required-field">
+                  Ich akzeptiere die <a href="nutzungsbedingungen.html" target="_blank">Nutzungsbedingungen</a> des Denkmalinformationssystems und verpflichte mich zur vertraulichen Behandlung der Daten.
+                </label>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="kontakt" name="kontakt">
+                <label for="kontakt" class="checkbox-label">
+                  Ich bin damit einverstanden, über Neuigkeiten und Updates zum Denkmalinformationssystem per E-Mail informiert zu werden.
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="form-footer">
+              <div class="required-notice">
+                <p>* Pflichtfelder müssen ausgefüllt werden</p>
+              </div>
+              <div class="form-actions">
+                <button type="reset" class="btn btn-secondary">Zurücksetzen</button>
+                <button type="submit" class="btn btn-primary">Antrag absenden</button>
+              </div>
+            </div>
+          </form>
+
+          <div class="accessibility-notice">
+            <h3>Hinweis zur Barrierefreiheit</h3>
+            <p>Das Denkmalinformationssystem (DIS) befindet sich in der Entwicklung und erfüllt derzeit nicht alle Anforderungen der Barrierefreien-Informationstechnik-Verordnung (BITV). Wir arbeiten kontinuierlich daran, die Zugänglichkeit zu verbessern. Bei Problemen oder Fragen zur Barrierefreiheit kontaktieren Sie uns bitte unter <a href="mailto:kontakt@dis-thf.de">kontakt@dis-thf.de</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Container für Footer-Einbindung -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript-Einbindung -->
+  <script src="js/main.js"></script>
+  <script>
+    // Dateiname anzeigen bei Upload
+    document.getElementById('dokument').addEventListener('change', function() {
+      const fileName = this.files[0]?.name || 'Keine Datei ausgewählt';
+      document.getElementById('file-name').textContent = fileName;
+    });
+
+    // Formular-Validierung und -Handling
+    document.getElementById('dis-access-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Hier würde normalerweise die Formularvalidierung und das Absenden erfolgen
+      // Für Demo-Zwecke zeigen wir eine Erfolgsmeldung an
+      
+      alert('Vielen Dank für Ihren Antrag! Wir werden Ihre Anfrage prüfen und uns in Kürze bei Ihnen melden.');
+      
+      // Optional: Formular zurücksetzen
+      // this.reset();
+    });
+  </script>
+</body>
+</html>
