@@ -2,38 +2,55 @@
 <header class="site-header site-header--thf" role="banner">
   <div class="head-flex">
     <!-- THF Logo -->
-    <a class="brand" href="/" aria-label="THF – Startseite">
+    <a class="brand" href="index.html" aria-label="THF – Startseite">
       <img src="https://www.thf-berlin.de/_assets/616c6a00a4c43ca7e5845da9208c60b2/Images/Logo_THF.svg" alt="Flughafen Tempelhof Logo" width="140" height="36">
     </a>
 
-    <!-- Leichte Sprache Button -->
-    <button id="easySwitch" class="ls-toggle" aria-pressed="false" type="button">LEICHTE SPRACHE</button>
-
-    <!-- Sprachumschalter -->
-    <div class="language-switch">
-      <span>DE</span>/<a href="#en">EN</a>
+    <!-- Mobile-Elemente in eigenen Container -->
+    <div class="mobile-controls">
+      <!-- Burger Menü (wird zu X, wenn geöffnet) -->
+      <button id="burgerToggle" class="burger-toggle" aria-expanded="false" aria-controls="megaOverlay" aria-label="Menü öffnen" type="button">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
     </div>
 
-    <!-- Suchfeld -->
-    <form class="site-search" role="search" aria-label="Website durchsuchen">
-      <label for="search-input" class="visually-hidden">Suchbegriff eingeben</label>
-      <input id="search-input" type="search" placeholder="Suche..." aria-label="Suchbegriff eingeben">
-      <button type="submit" aria-label="Suchen">
-        <i class="fa fa-search" aria-hidden="true"></i>
-      </button>
-    </form>
+    <!-- Desktop-Elemente werden auf Mobil ausgeblendet -->
+    <div class="desktop-controls">
+      <!-- Leichte Sprache Button -->
+      <button id="easySwitch" class="ls-toggle" aria-pressed="false" type="button">LEICHTE SPRACHE</button>
 
-    <!-- Burger Menü (wird zu X, wenn geöffnet) -->
-    <button id="burgerToggle" class="burger-toggle" aria-expanded="false" aria-controls="megaOverlay" aria-label="Menü öffnen" type="button">
-      <span class="bar bar-1"></span>
-      <span class="bar bar-2"></span>
-      <span class="bar bar-3"></span>
-    </button>
+      <!-- Sprachumschalter -->
+      <div class="language-switch">
+        <span>DE</span>/<a href="#en">EN</a>
+      </div>
+
+      <!-- Suchfeld -->
+      <form class="site-search" role="search" aria-label="Website durchsuchen">
+        <label for="search-input" class="visually-hidden">Suchbegriff eingeben</label>
+        <input id="search-input" type="search" placeholder="Suche..." aria-label="Suchbegriff eingeben">
+        <button type="submit" aria-label="Suchen">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
   </div>
 </header>
 
 <!-- Mega-Menü Overlay UNTER dem Header -->
 <div id="megaOverlay" class="mega-overlay" hidden>
+  <!-- Mobile-Suchleiste im Menü -->
+  <div class="mobile-search">
+    <form class="site-search" role="search" aria-label="Website durchsuchen">
+      <label for="mobile-search-input" class="visually-hidden">Suchbegriff eingeben</label>
+      <input id="mobile-search-input" type="search" placeholder="Suche..." aria-label="Suchbegriff eingeben">
+      <button type="submit" aria-label="Suchen">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </form>
+  </div>
+
   <div class="mega-grid">
     <div class="mega-col">
       <h3 class="section-title">Über Uns</h3>
@@ -97,6 +114,17 @@
         <li><a href="/#agb">AGB</a></li>
         <li><a href="/#impressum">Impressum</a></li>
       </ul>
+    </div>
+  </div>
+  
+  <!-- Mobile-spezifische Elemente im Menü -->
+  <div class="mobile-menu-footer">
+    <!-- Sprache und Leichte Sprache für Mobile -->
+    <div class="mobile-language">
+      <div class="language-switch">
+        <span>DE</span>/<a href="#en">EN</a>
+      </div>
+      <button id="mobileLsToggle" class="ls-toggle" aria-pressed="false" type="button">LEICHTE SPRACHE</button>
     </div>
   </div>
   

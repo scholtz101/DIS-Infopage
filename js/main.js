@@ -71,12 +71,60 @@ function initMenuFunctionality() {
     });
   }
   
+  // Mobile-Version des Leichte-Sprache-Buttons
+  const mobileLsToggle = document.getElementById('mobileLsToggle');
+  const desktopLsToggle = document.getElementById('easySwitch');
+  
+  if (mobileLsToggle && desktopLsToggle) {
+    // Status synchronisieren
+    mobileLsToggle.addEventListener('click', function() {
+      const isPressed = this.getAttribute('aria-pressed') === 'true';
+      this.setAttribute('aria-pressed', !isPressed);
+      desktopLsToggle.setAttribute('aria-pressed', !isPressed);
+      toggleEasyLanguage(!isPressed);
+    });
+  }
+  
+  // Tree-Toggle Funktionalität für Mobile optimieren
+  const treeToggles = document.querySelectorAll('.tree-toggle');
+  
+  treeToggles.forEach(toggle => {
+    toggle.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      const targetId = this.getAttribute('aria-controls');
+      const targetContent = document.getElementById(targetId);
+      
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      if (targetContent) {
+        targetContent.hidden = isExpanded;
+      }
+      
+      // Icon drehen für visuelles Feedback
+      this.classList.toggle('rotated', !isExpanded);
+    });
+  });
+  
   // DIS-Anmeldung-Links korrigieren
   const disAnmeldungLinks = document.querySelectorAll('a[href*="#dis-anmeldung"]');
   disAnmeldungLinks.forEach(link => {
     if (link.getAttribute('href') === '#dis-anmeldung') {
       link.setAttribute('href', 'dis-anmeldung.html');
     }
+  });
+}
+
+// Funktion zum Umschalten der leichten Sprache
+function toggleEasyLanguage(enable) {
+  const easyTextElements = document.querySelectorAll('.easy-text');
+  const normalTextElements = document.querySelectorAll('.normal-text');
+  
+  easyTextElements.forEach(el => {
+    el.hidden = !enable;
+  });
+  
+  normalTextElements.forEach(el => {
+    el.hidden = enable;
   });
 }
 
