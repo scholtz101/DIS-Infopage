@@ -1411,6 +1411,72 @@ textarea.form-control {
   outline: none;
 }
 
+/* Lightbox-Navigation */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition: background-color 0.2s ease;
+  padding: 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.lightbox-nav:hover,
+.lightbox-nav:focus {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  z-index: 10001;
+}
+
+/* Verbesserte mobile Styles für die Lightbox-Navigation */
+@media (max-width: 768px) {
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .lightbox-prev {
+    left: 10px;
+  }
+  
+  .lightbox-next {
+    right: 10px;
+  }
+}
+
 /* Sicherstellen, dass der Button über allem liegt und klickbar ist */
 .lightbox-overlay {
   z-index: 9999;
@@ -1435,51 +1501,64 @@ textarea.form-control {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   border: none;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  font-size: 1.5rem;
+  font-size: 24px;
+  line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10000;
-  transition: background var(--transition-fast);
+  z-index: 10001;
+  transition: background-color 0.2s ease;
+  padding: 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-.lightbox-nav:hover {
-  background: rgba(0, 0, 0, 0.6);
+.lightbox-nav:hover,
+.lightbox-nav:focus {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .lightbox-prev {
-  left: 1rem;
+  left: 20px;
 }
 
 .lightbox-next {
-  right: 1rem;
+  right: 20px;
 }
 
+.lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  z-index: 10001;
+}
+
+/* Verbesserte mobile Styles für die Lightbox-Navigation */
 @media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
-  }
-  
-  .gallery-item img {
-    height: 150px;
-  }
-  
-  .lightbox-content {
-    max-width: 95%;
-  }
-  
   .lightbox-nav {
     width: 40px;
     height: 40px;
-    font-size: 1.2rem;
+    font-size: 18px;
+  }
+  
+  .lightbox-prev {
+    left: 10px;
+  }
+  
+  .lightbox-next {
+    right: 10px;
   }
 }
 
