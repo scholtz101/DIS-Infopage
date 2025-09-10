@@ -235,6 +235,7 @@ a:hover {
   cursor: pointer;
   padding: 0;
   z-index: 1002;
+  position: relative;
 }
 
 .burger-toggle .bar {
@@ -256,6 +257,59 @@ a:hover {
 
 .burger-toggle[aria-expanded="true"] .bar-3 {
   transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* Mobile-Controls Container - ÄNDERUNG: immer anzeigen */
+.mobile-controls {
+  display: flex;
+  align-items: center;
+}
+
+/* Anpassungen für mobile Auflösung */
+@media (max-width: 768px) {
+  .site-header--thf {
+    height: 70px;
+  }
+  
+  .site-header--thf .head-flex {
+    display: flex;
+    justify-content: space-between; /* Verteilt Logo links und Burger rechts */
+    align-items: center;
+    padding: 0 var(--container-padding);
+  }
+  
+  .mobile-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Burger-Button nach rechts ausrichten */
+  }
+  
+  .desktop-controls {
+    display: none;
+  }
+  
+  /* Burger-Button besser sichtbar machen */
+  .burger-toggle {
+    width: 30px;
+    height: 24px;
+    margin-left: 15px; /* Abstand zum Rest des Headers */
+    padding: 5px; /* Mehr Klickbereich */
+  }
+  
+  .burger-toggle .bar {
+    height: 3px; /* Dickere Linien für bessere Sichtbarkeit */
+    background-color: #000; /* Deutlichere Farbe */
+  }
+  
+  /* Logo links ausrichten und angemessene Größe */
+  .site-header--thf .brand {
+    margin-right: auto; /* Hält das Logo links */
+  }
+  
+  .site-header--thf .brand img {
+    height: 34px;
+    width: auto;
+  }
 }
 
 /* ===== MEGA-MENÜ ===== */
@@ -1105,18 +1159,35 @@ textarea.form-control {
   
   .site-header--thf {
     height: 70px;
+    position: relative; /* Sicherstellen, dass der Header korrekt positioniert ist */
   }
   
-  .mega-overlay {
-    top: 70px;
+  .site-header--thf .head-flex {
+    flex-wrap: nowrap; /* Verhindert Umbruch der Flex-Elemente */
   }
   
-  .ls-toggle {
+  .mobile-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Button nach rechts ausrichten */
+    margin-left: auto; /* Wichtig für die korrekte Positionierung */
+  }
+  
+  .desktop-controls {
     display: none;
   }
   
-  .site-header--thf .site-search input {
-    min-width: 120px;
+  /* Sicherstellen, dass das Logo nicht zu groß ist */
+  .site-header--thf .brand img {
+    height: 34px;
+    max-width: 120px; /* Begrenzen Sie die Breite auf Mobilgeräten */
+  }
+  
+  /* Breadcrumbs unter dem Header halten */
+  .breadcrumbs {
+    position: relative;
+    z-index: 900; /* Niedriger als der Header */
+    margin-top: 0;
   }
   
   .cta-title {
@@ -1542,4 +1613,20 @@ textarea.form-control {
 /* Tempelhof-spezifischer Header */
 .site-header--thf {
   background-color: var(--thf-yellow);
+}
+
+/* Desktop-Anpassungen für das Burger-Menü - NEU */
+@media (min-width: 769px) {
+  /* Desktop-Controls anpassen, um Burger-Menü und andere Elemente nebeneinander zu zeigen */
+  .desktop-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+  }
+  
+  /* Burger-Menü auf Desktop optimieren */
+  .burger-toggle {
+    margin-left: 1rem;
+  }
 }

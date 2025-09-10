@@ -6,17 +6,7 @@
       <img src="https://www.thf-berlin.de/_assets/616c6a00a4c43ca7e5845da9208c60b2/Images/Logo_THF.svg" alt="Flughafen Tempelhof Logo" width="140" height="36">
     </a>
 
-    <!-- Mobile-Elemente in eigenen Container -->
-    <div class="mobile-controls">
-      <!-- Burger Menü (wird zu X, wenn geöffnet) -->
-      <button id="burgerToggle" class="burger-toggle" aria-expanded="false" aria-controls="megaOverlay" aria-label="Menü öffnen" type="button">
-        <span class="bar bar-1"></span>
-        <span class="bar bar-2"></span>
-        <span class="bar bar-3"></span>
-      </button>
-    </div>
-
-    <!-- Desktop-Elemente werden auf Mobil ausgeblendet -->
+    <!-- Desktop-Elemente -->
     <div class="desktop-controls">
       <!-- Leichte Sprache Button -->
       <button id="easySwitch" class="ls-toggle" aria-pressed="false" type="button">LEICHTE SPRACHE</button>
@@ -35,6 +25,13 @@
         </button>
       </form>
     </div>
+
+    <!-- Burger Menü (immer sichtbar) -->
+    <button id="burgerToggle" class="burger-toggle" aria-expanded="false" aria-controls="megaOverlay" aria-label="Menü öffnen" type="button">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+    </button>
   </div>
 </header>
 
